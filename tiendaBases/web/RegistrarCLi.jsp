@@ -37,25 +37,22 @@ Empresa:
 <input type="file" name="foto" value="">  <br><br><br>
 
 
-<div style="display: none">
-    
-            
+<div id = "show" style="display: none">           
    Nombre de Usuario:
 <input type="text" name="Usu" value="">  <br><br>
 
    password:
 <input type="text" name="passw" value="">  <br><br>
-
-
-    
+ 
 </div>
         
 
 
+<input type="button" name="Registtrar" onclick="hola()" value="Registrarse"><br><br><br>
 
-<input type="submit" name="Registtrar"  value="Registrarse"><br>
-
-
+<input type="submit" name="Crear"  value="Crear"><br>
+<script src="/tiendaBases/Recursos/JS/Registrar.js">
+</script>
     	   
 
         
