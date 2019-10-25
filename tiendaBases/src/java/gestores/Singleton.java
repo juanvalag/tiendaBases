@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model;
+package gestores;
 
 import java.io.IOException;
 import static java.lang.System.out;
 import java.util.ArrayList;
+import model.Cliente;
 public class Singleton {
   
 private static Singleton instancia=null;

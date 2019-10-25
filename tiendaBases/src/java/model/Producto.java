@@ -11,17 +11,20 @@ import java.io.Serializable;
 public class Producto implements Serializable {
 
     private String id, nombre, nomFoto;
+    private int existencias;
 
     public Producto() {
         this.id = "";
         this.nombre = "";
         this.nomFoto = "";
+        this.existencias = 0;
     }
 
-    public Producto(String id, String nombre, String nomFoto) {
+    public Producto(String id, String nombre, String nomFoto, int exis) {
         this.id = id;
         this.nombre = nombre;
         this.nomFoto = nomFoto;
+        this.existencias = exis;
     }
 
     public String getId() {
@@ -47,6 +50,23 @@ public class Producto implements Serializable {
     public void setNomFoto(String nomFoto) {
         this.nomFoto = nomFoto;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getExistencias() {
+        return existencias;
+    }
+
+    public void setExistencias(int existencias) {
+        this.existencias = existencias;
+    }
+
 
 
 }
