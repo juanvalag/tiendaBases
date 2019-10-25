@@ -18,11 +18,11 @@
         
 Nombre:
 
-<input type="text" name="name" value="">  <br>
+<input type="text" name="name" value="">  <br><br>
 
 
 Documento:
-<input type="text" name="docu" value="">  <br>
+<input type="text" name="docu" value="">  <br><br>
 
 
 
@@ -37,14 +37,24 @@ Empresa:
 <input type="file" name="foto" value="">  <br><br><br>
 
 
+<div id = "show" style="display: none">           
+   Nombre de Usuario:
+<input type="text" name="Usu" value="">  <br><br>
 
-<input type="submit" name="Registtrar"  value="Registrarse"><br>
+   password:
+<input type="text" name="passw" value="">  <br><br>
+ 
+</div>
+        
 
-        
-        
-        
-        
-        
+
+<input type="button" name="Registtrar" onclick="hola()" value="Registrarse"><br><br><br>
+
+<input type="submit" name="Crear"  value="Crear"><br>
+<script src="/tiendaBases/Recursos/JS/Registrar.js">
+</script>
+    	   
+
         
     </body>
 </html>
