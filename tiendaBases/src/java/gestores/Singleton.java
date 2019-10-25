@@ -8,12 +8,13 @@ package gestores;
 import java.io.IOException;
 import static java.lang.System.out;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import model.Cliente;
 public class Singleton {
   
 private static Singleton instancia=null;
 
-
+ private ArrayList<Cliente> clientes= new ArrayList<Cliente>();
 
 public static Singleton laconstructora()
 {
@@ -28,11 +29,22 @@ public static Singleton laconstructora()
 public void agregarCliente(Cliente Paco)
 
 {          
-    ArrayList<Cliente> Clientes= new ArrayList<Cliente>();
+   
+    for(int i =0;i<clientes.size();i++)
+    {
+        if(clientes.get(i).getId().equals(Paco.getId()))
+        {
+            
+            JOptionPane.showMessageDialog(null,"ya existe");
+        }
+        else
+        {
+            clientes.add(Paco);
+     
+        }
+    }
     
-    
-	Clientes.add(Paco);
-       System.out.println("llegue aca bien");
+	
             
         
         

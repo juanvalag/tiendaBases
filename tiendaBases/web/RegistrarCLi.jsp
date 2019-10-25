@@ -18,11 +18,11 @@
         
 Nombre:
 
-<input type="text" name="name" value="">  <br>
+<input type="text" name="name" value="">  <br><br>
 
 
 Documento:
-<input type="text" name="docu" value="">  <br>
+<input type="text" name="docu" value="">  <br><br>
 
 
 
@@ -37,14 +37,27 @@ Empresa:
 <input type="file" name="foto" value="">  <br><br><br>
 
 
+<div style="display: none">
+    
+            
+   Nombre de Usuario:
+<input type="text" name="Usu" value="">  <br><br>
+
+   password:
+<input type="text" name="passw" value="">  <br><br>
+
+
+    
+</div>
+        
+
+
 
 <input type="submit" name="Registtrar"  value="Registrarse"><br>
 
-        
-        
-        
-        
-        
+
+    	   
+
         
     </body>
 </html>

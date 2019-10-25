@@ -14,17 +14,17 @@ public class Cliente implements Serializable {
         this.tipo = "";
         this.nomUsuario = "";
         this.pass = "";
-        this.existencias = 0;
+       
     }
 
-    public Cliente(String id, String nombre, String tipo, String nomFoto, String nomUsuario, String pass, int exis) {
+    public Cliente(String id, String nombre, String tipo, String nomFoto, String nomUsuario, String passw) {
         this.id = id;
         this.nombre = nombre;
         this.nomFoto = nomFoto;
         this.tipo = tipo;
         this.nomUsuario = nomUsuario;
-        this.pass = pass;
-        this.existencias = exis;
+        this.pass = passw;
+       
     }
 
     public String getId() {
@@ -59,13 +59,8 @@ public class Cliente implements Serializable {
         this.nombre = nombre;
     }
 
-    public int getExistencias() {
-        return existencias;
-    }
+ 
 
-    public void setExistencias(int existencias) {
-        this.existencias = existencias;
-    }
 
     public String getTipo() {
         return tipo;
