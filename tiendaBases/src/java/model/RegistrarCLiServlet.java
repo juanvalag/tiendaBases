@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
         name ="RegistrarCLi" ,    
         urlPatterns = {"/RegistrarCLi"}   
     )
-public class SregistrarCLiS extends HttpServlet {
+public class RegistrarCLiServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
