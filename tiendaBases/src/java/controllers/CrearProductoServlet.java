@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package controllers;
-import gestores.Singleton;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -17,18 +16,15 @@ import model.Producto;
 
 @WebServlet(
         name ="crearProducto" ,    
-        urlPatterns = {"/crearProducto_"}   
-    )
-public class CrarProductoServlet extends HttpServlet {
+        urlPatterns = {"/crearProducto"}    )
+public class CrearProductoServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         ServletOutputStream out = resp.getOutputStream();
-        Singleton temp=Singleton.laconstructora();
         Producto pro=new Producto(req.getParameter("idpro"),req.getParameter("namepro"),req.getParameter("foto"),
                                   Integer.parseInt(req.getParameter("precio")),Integer.parseInt(req.getParameter("cant")));
        
-        temp.
     }
 }

@@ -1,11 +1,5 @@
 package controllers;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-import gestores.Singleton;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -26,16 +20,12 @@ public class RegistrarCLiServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         ServletOutputStream out = resp.getOutputStream();
-        Singleton temp = Singleton.laconstructora();
         
         
         
         
         Cliente paco= new Cliente(req.getParameter("docu"),req.getParameter("name"),req.getParameter("tipo"),
-                                  req.getParameter("foto"),req.getParameter("Usu"),req.getParameter("passw"));
-        
-        
-        temp.agregarCliente(paco);
+                req.getParameter("foto"), req.getParameter("Usu"), req.getParameter("passw"));
         
 
     }
