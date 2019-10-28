@@ -12,8 +12,10 @@
             </header>  
         </section>
         <section id="formulario">
-            <form action="crearProducto" method="POST">
-                <input type="text" placeholder="Ingrese el ID del producto" >
+            <form action="crearProveedor" method="POST">
+                <input type="text" name="idProve" placeholder="Ingrese el ID del proveedor" ><br><br>
+                <input type="text" name="nomProve" placeholder="Ingrese el Nombre del proveedor" > <br><br>
+                <input type="submit" name="Crear"  value="Crear"><br>
             </form>
         </section>
 
