@@ -18,7 +18,7 @@
         
 Nombre:
 
-<input type="text" name="name" value="">  <br><br>
+<input type="text" name="name" >  <br><br>
 
 
 Documento:

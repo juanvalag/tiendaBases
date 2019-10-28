@@ -9,7 +9,7 @@ package gestores;
 
 
 
-import conexiones.AbstractDB;
+import Conexion.AbstractDB;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
