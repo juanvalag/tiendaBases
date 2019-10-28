@@ -13,7 +13,15 @@
         </section>
         <section id="formulario">
             <form action="crearProducto" method="POST">
-                <input type="text" placeholder="Ingrese el ID del producto" >
+                
+                ID del producto:<input type="text" name="idpro" placeholder="Ingrese el ID del producto" ><br><br>
+                Nombre del producto:<input type="text" name="namepro" placeholder="Ingrese el Nombre del producto" ><br><br>
+                Foto del producto: <input type="file" name="foto" value="">  <br><br>
+                Precio de la venta: <input type="number" name="precio" placeholder="Ingrese el ID del producto"><br><br>
+                Cantidad:<input type="number" name="cant" value="0" min="0"><br><br>
+                <input type="submit" name="CrearP"  value="Adicionar"><br>
+                
+                
             </form>
         </section>
 

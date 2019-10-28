@@ -1,10 +1,9 @@
-package controllers;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package controllers;
 import gestores.Singleton;
 import java.io.IOException;
 
@@ -14,30 +13,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Cliente;
+import model.Producto;
 
 @WebServlet(
-        name = "RegistrarCLi",
-        urlPatterns = {"/RegistrarCLi"}
-)
-public class RegistrarCLiServlet extends HttpServlet {
+        name ="crearProducto" ,    
+        urlPatterns = {"/crearProducto_"}   
+    )
+public class CrarProductoServlet extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         ServletOutputStream out = resp.getOutputStream();
-        Singleton temp = Singleton.laconstructora();
-        
-        
-        
-        
-        Cliente paco= new Cliente(req.getParameter("docu"),req.getParameter("name"),req.getParameter("tipo"),
-                                  req.getParameter("foto"),req.getParameter("Usu"),req.getParameter("passw"));
-        
-        
-        temp.agregarCliente(paco);
-        
-
+        Singleton temp=Singleton.laconstructora();
+        Producto pro=new Producto(req.getParameter("idpro"),req.getParameter("namepro"),req.getParameter("foto"),
+                                  Integer.parseInt(req.getParameter("precio")),Integer.parseInt(req.getParameter("cant")));
+       
+        temp.
     }
-
 }

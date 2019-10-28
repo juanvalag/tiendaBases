@@ -10,11 +10,13 @@ import static java.lang.System.out;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import model.Cliente;
+import model.Producto;
 public class Singleton {
   
 private static Singleton instancia=null;
 
  private ArrayList<Cliente> clientes= new ArrayList<Cliente>();
+ private ArrayList<Producto> prodcutos= new ArrayList<Producto>();
 
 public static Singleton laconstructora()
 {
@@ -44,10 +46,26 @@ public void agregarCliente(Cliente Paco)
         }
     }
     
-	
+}
+
+public void agregarProducto(Producto Pro)
+
+{          
+   
+    for(int i =0;i<clientes.size();i++)
+    {
+        if(clientes.get(i).getId().equals(Paco.getId()))
+        {
             
-        
-        
+            JOptionPane.showMessageDialog(null,"ya existe");
+        }
+        else
+        {
+            clientes.add(Paco);
+     
+        }
+    }
+    
 }
 
 
