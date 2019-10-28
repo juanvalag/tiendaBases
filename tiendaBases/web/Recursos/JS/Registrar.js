@@ -5,7 +5,7 @@
  */
 
 function hola(){
-    alert("jghmjgj");
+   
     document.getElementById("show").style.display="block";
     
 }

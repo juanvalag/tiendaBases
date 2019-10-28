@@ -11,9 +11,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Registrar Cliente</title>
     </head>
-    <body>
-       
-       <form action="RegistrarCLi" method = "get">  
+    <body style="background-color:powderblue;">
+        
+       <form action="RegistrarCLi" method = "post">  
         
         
 Nombre:

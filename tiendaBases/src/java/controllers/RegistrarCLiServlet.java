@@ -18,7 +18,7 @@ import model.Cliente;
 public class RegistrarCLiServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         ServletOutputStream out = resp.getOutputStream();
         Singleton temp = Singleton.laconstructora();
