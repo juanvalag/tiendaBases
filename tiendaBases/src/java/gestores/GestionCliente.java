@@ -30,7 +30,7 @@ public class GestionCliente extends AbstractDB
     
     
     
-    public boolean GuardaDemandante(Cliente cli) 
+    /*  public boolean GuardaDemandante(Cliente cli) 
             
     {
         boolean ok =false;
@@ -196,6 +196,6 @@ public class GestionCliente extends AbstractDB
     
     
     
-    
+    */
     
 }

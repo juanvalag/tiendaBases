@@ -16,8 +16,7 @@ import model.Producto;
 
 @WebServlet(
         name ="crearProducto" ,    
-        urlPatterns = {"/crearProducto_"}   
-    )
+        urlPatterns = {"/crearProducto"}    )
 public class CrearProductoServlet extends HttpServlet {
 
     @Override
