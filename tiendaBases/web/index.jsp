@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Inicio</title>
     </head>
     <body>
         <div>
@@ -19,43 +19,28 @@
             </nav>
             <section>
                 <form action="RegistrarCLi" method = "post">  
-
-
                     <label>Nombre: </label> <input type="text" name="name" value="">  <br><br>
-
-
-
                     <label>Documento: </label> <input type="text" name="docu" value="">  <br><br>
-
-
-
-
                     <label> Cliente: </label> <input type="radio" name="tipo" value="Cliente" checked="true">  <br><br>
-
-                    Empresa:
-                    <input type="radio" name="tipo" value="Empresa"> <br><br><br>
-
-
-                    Foto:
-                    <input type="file" name="foto" value="">  <br><br><br>
-
-
-                    <div id = "show" style="display: none">           
-                        Nombre de Usuario:
-                        <input type="text" name="Usu" value="">  <br><br>
-
-                        password:
-                        <input type="text" name="passw" value="">  <br><br>
-
-                    </div>
-
-
-
-                    <input type="button" name="Registtrar" onclick="hola()" value="Registrarse"><br><br><br>
-
+                    <label>  Empresa: </label> <input type="radio" name="tipo" value="Empresa"> <br><br>                    <label>  Foto:</label> <input type="file" name="foto" value="">  <br><br>
+                    <label>Nombre de Usuario:</label><input type="text" name="Usu" value="">  <br><br>
+                    <label> Contraseña: </label> <input type="password" name="passw" value="">  <br><br>
+                    <label>Telefono:</label><input type="text" name="Usu" value="">  <br><br>
+                    <label> Direccion: </label> <input type="text" name="passw" value="">  <br><br>
                     <input type="submit" name="Crear"  value="Crear"><br>
-                    </section>
-                    <section></section>
-                    </div>
-                    </body>
+                </form>
+            </section>
+            <section>
+                <form action="RegistrarAdmin" method = "post">  
+                    <label>Nombre: </label> <input type="text" name="name" value="">  <br><br>
+                    <label>Documento: </label> <input type="text" name="docu" value="">  <br><br>
+                    <label>  Foto:</label> <input type="file" name="foto" value="">  <br><br><br>
+                    <label>Nombre de Usuario:</label><input type="text" name="Usu" value="">  <br><br>
+                    <label> password:</label> <input type="password" name="passw" value="">  <br><br>
+                    <input type="submit" name="Crear" value="Crear"><br>
+                </form>
+            </section>
+        </div>
+        <script src="/tiendaBases/Recursos/JS/index.js"></script>
+    </body>
 </html>
