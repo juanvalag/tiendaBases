@@ -14,10 +14,10 @@
     <body>
         <div>
             <nav>
-                <button>Iniciar Sesión</button>
-                <button>Registrarse</button>
+                <button onclick="menus()">Cliente</button>
+                <button onclick="menus()">Administrador</button>
             </nav>
-            <section>
+            <section id="cliente">
                 <form action="RegistrarCLi" method = "post">  
                     <label>Nombre: </label> <input type="text" name="name" value="">  <br><br>
                     <label>Documento: </label> <input type="text" name="docu" value="">  <br><br>
@@ -30,7 +30,7 @@
                     <input type="submit" name="Crear"  value="Crear"><br>
                 </form>
             </section>
-            <section>
+            <section id="admin">
                 <form action="RegistrarAdmin" method = "post">  
                     <label>Nombre: </label> <input type="text" name="name" value="">  <br><br>
                     <label>Documento: </label> <input type="text" name="docu" value="">  <br><br>
@@ -41,6 +41,7 @@
                 </form>
             </section>
         </div>
-        <script src="/tiendaBases/Recursos/JS/index.js"></script>
+        <script src="/tiendaBases/Recursos/JS/index.js">
+        </script>
     </body>
 </html>
