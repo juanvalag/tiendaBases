@@ -15,10 +15,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import model.Cliente;
 
-/**
- *
- * @author LUZDA
- */
 public class GestionCliente extends AbstractDB  
 
 {
