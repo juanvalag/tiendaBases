@@ -9,12 +9,11 @@ package gestores;
 
 
 
-import Conexion.AbstractDB;
+import conexion.AbstractDB;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
+import model.Cliente;
 
 /**
  *
@@ -30,22 +29,21 @@ public class GestionCliente extends AbstractDB
     
     
     
-    /*  public boolean GuardaDemandante(Cliente cli) 
-            
-    {
+    public boolean guardaCliente(Cliente cli)    {
         boolean ok =false;
        try 
        {
            ResultSet res;
-           PreparedStatement stmt= this.conn.prepareStatement("call newCliente(?,?,?,?,?)");
-           stmt.setString(1, cli.getIdCliente());
+           PreparedStatement stmt = this.conn.prepareStatement("call newCliente(?,?,?,?,?,?,?,?)");
+           stmt.setString(1, cli.getId());
            stmt.setString(2, cli.getNombre());
-           stmt.setString(3, cli.getDireccion());
-           stmt.setString(4, cli.getTelefono());
-           stmt.setString(5, cli.getEmail());
-           
-           
-           
+           stmt.setString(3, cli.getTipo());
+           stmt.setString(4, cli.getNomFoto());
+           stmt.setString(5, cli.getTelefono());
+           stmt.setString(6, cli.getDireccion());
+           stmt.setString(7, cli.getNomUsuario());
+           stmt.setString(8, cli.getPass());
+
            res=stmt.executeQuery();
            res.close();
            ok=true;
@@ -56,16 +54,14 @@ public class GestionCliente extends AbstractDB
         {
             System.out.println(ex);
         }
-        
 
-        
         return ok;
     }
     
     
-     public Cliente BuscaDemandante(String id)
+    /* public Usuario BuscaDemandante(String id)
     {
-        Cliente dema=null;
+        Usuario dema=null;
        
         try 
         {
@@ -78,7 +74,7 @@ public class GestionCliente extends AbstractDB
         while(res.next())
         {
             
-           dema= new Cliente();
+           dema= new Usuario();
            dema.setIdCliente(res.getString("idCliente"));
            dema.setNombre(res.getString("Nombre"));
            dema.setDireccion(res.getString("Direccion"));
@@ -107,7 +103,7 @@ public class GestionCliente extends AbstractDB
             ResultSet res=stmt.executeQuery("call getAllClientes()");
              while(res.next())
         {
-           Cliente dema= new Cliente();
+           Usuario dema= new Usuario();
            dema.setIdCliente(res.getString("idCliente"));
            dema.setNombre(res.getString("Nombre"));
            dema.setDireccion(res.getString("Direccion"));
@@ -131,7 +127,7 @@ public class GestionCliente extends AbstractDB
     
     
     
-      public boolean ModificaCliente(Cliente dema,String oldId) 
+      public boolean ModificaCliente(Usuario dema,String oldId) 
     {
         boolean ok=false;  
         try

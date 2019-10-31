@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Conexion;
+package conexion;
 
 
 import java.sql.Connection;
@@ -15,36 +15,31 @@ import java.util.logging.Logger;
 public class ConnectionDB 
 {
     private final String url;
+    private final String username;
+    private final String password;
     private Connection conn;
     
     public ConnectionDB() 
     {        
-        this.url = "jdbc:mysql://localhost:3306/el_desvare?user=root&password=a123456789";
+        this.url = "jdbc:mysql://localhost:3306/tiendaBases";
+        this.username = "root";
+        this.password = "MySQLRoot";
         try 
         {
-            Class.forName("com.mysql.cj.jdbc.Driver").newInstance();//para MySQL 8.x..x
+            // Class.forName("com.mysql.cj.jdbc.Driver").newInstance();//para MySQL 8.x..x
             //Class.forName("com.mysql.jdbc.Driver").newInstance();//para MySQL 5.x..x
             
-            this.conn = DriverManager.getConnection(url);
+            this.conn = DriverManager.getConnection(this.url, this.username, this.password);
             if(this.conn!=null)
                 System.out.println("Todo bien..estamos conectados..!!");
         } 
         catch (SQLException e) 
         {
-            e.printStackTrace();            
+            for (Throwable t : e) {
+                t.printStackTrace();
+            }
         }         
-        catch (InstantiationException e) 
-        {
-            e.printStackTrace();
-        }         
-        catch (IllegalAccessException e) 
-        {
-            e.printStackTrace();
-        } 
-        catch (ClassNotFoundException e) 
-        {
-            e.printStackTrace();
-        }
+
     }
     
     public Connection getConn() {

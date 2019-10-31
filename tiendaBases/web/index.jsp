@@ -25,8 +25,8 @@
                     <label>  Empresa: </label> <input type="radio" name="tipo" value="Empresa"> <br><br>                    <label>  Foto:</label> <input type="file" name="foto" value="">  <br><br>
                     <label>Nombre de Usuario:</label><input type="text" name="Usu" value="">  <br><br>
                     <label> Contraseña: </label> <input type="password" name="passw" value="">  <br><br>
-                    <label>Telefono:</label><input type="text" name="Usu" value="">  <br><br>
-                    <label> Direccion: </label> <input type="text" name="passw" value="">  <br><br>
+                    <label>Telefono:</label><input type="text" name="tel" value="">  <br><br>
+                    <label> Direccion: </label> <input type="text" name="dir" value="">  <br><br>
                     <input type="submit" name="Crear"  value="Crear"><br>
                 </form>
             </section>

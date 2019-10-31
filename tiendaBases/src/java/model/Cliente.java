@@ -1,46 +1,39 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 package model;
 
 import java.io.Serializable;
 
-public class Cliente implements Serializable {
+public class Cliente extends Usuario implements Serializable {
 
-    private String id, nombre, tipo, nomUsuario, pass, nomFoto;
-    private int existencias;
+    private String tipo, nomFoto, telefono, direccion;
 
-    public Cliente() {
-        this.id = "";
-        this.nombre = "";
-        this.nomFoto = "";
-        this.tipo = "";
-        this.nomUsuario = "";
-        this.pass = "";
-       
-    }
+public Cliente(){
+    super();
+    this.tipo = "";
+    this.nomFoto = "";
+    this.telefono = "";
+    this.direccion = "";
+}
 
-    public Cliente(String id, String nombre, String tipo, String nomFoto, String nomUsuario, String passw) {
-        this.id = id;
-        this.nombre = nombre;
-        this.nomFoto = nomFoto;
+    public Cliente(String id, String nombre, String nomUsuario, String passw, String tipo, String nomFoto, String tel, String dir) {
+        super(id, nombre, nomUsuario, passw);
         this.tipo = tipo;
-        this.nomUsuario = nomUsuario;
-        this.pass = passw;
-       
+        this.nomFoto = nomFoto;
+        this.telefono = tel;
+        this.direccion = dir;
     }
 
-    public String getId() {
-        return id;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getProveedor() {
-        return nombre;
-    }
-
-    public void setProveedor(String nombre) {
-        this.nombre = nombre;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     public String getNomFoto() {
@@ -51,40 +44,22 @@ public class Cliente implements Serializable {
         this.nomFoto = nomFoto;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getTelefono() {
+        return telefono;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
- 
-
-
-    public String getTipo() {
-        return tipo;
+    public String getDireccion() {
+        return direccion;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
-    public String getNomUsuario() {
-        return nomUsuario;
-    }
-
-    public void setNomUsuario(String nomUsuario) {
-        this.nomUsuario = nomUsuario;
-    }
-
-    public String getPass() {
-        return pass;
-    }
-
-    public void setPass(String pass) {
-        this.pass = pass;
-    }
 
 
 }
