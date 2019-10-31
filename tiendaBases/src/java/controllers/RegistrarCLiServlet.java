@@ -26,7 +26,6 @@ public class RegistrarCLiServlet extends HttpServlet {
                 req.getParameter("passw"), req.getParameter("tipo"), req.getParameter("foto"), req.getParameter("tel"),
                 req.getParameter("dir"));
         GestionCliente gest = new GestionCliente();
-        gest.guardaCliente(paco);
         if (gest.guardaCliente(paco)) {
             System.out.println("Ya lo Guarde :V");
         }

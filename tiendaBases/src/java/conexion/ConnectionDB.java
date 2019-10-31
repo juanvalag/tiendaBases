@@ -26,7 +26,7 @@ public class ConnectionDB
         this.password = "MySQLRoot";
         try 
         {
-            // Class.forName("com.mysql.cj.jdbc.Driver").newInstance();//para MySQL 8.x..x
+            Class.forName("com.mysql.cj.jdbc.Driver").newInstance();//para MySQL 8.x..x
             //Class.forName("com.mysql.jdbc.Driver").newInstance();//para MySQL 5.x..x
             
             this.conn = DriverManager.getConnection(this.url, this.username, this.password);
@@ -38,7 +38,13 @@ public class ConnectionDB
             for (Throwable t : e) {
                 t.printStackTrace();
             }
-        }         
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
 
     }
     
