@@ -10,12 +10,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Inicio</title>
+        <link type="text/css" rel="stylesheet" href="/tiendaBases/Recursos/css/index.css">
     </head>
     <body>
-        <div>
+        <div class="fondo">
+            <div class="formCreaUser">
             <nav>
-                <button onclick="menus()">Cliente</button>
-                <button onclick="menus()">Administrador</button>
+                <label onclick="menus()">Cliente</label>
+                <label onclick="menus()">Administrador</label>
             </nav>
             <section id="cliente">
                 <form action="RegistrarCLi" method = "post">  
@@ -40,6 +42,7 @@
                     <input type="submit" name="Crear" value="Crear"><br>
                 </form>
             </section>
+        </div>
         </div>
         <script src="/tiendaBases/Recursos/JS/index.js">
         </script>
