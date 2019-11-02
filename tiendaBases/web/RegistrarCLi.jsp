@@ -1,8 +1,3 @@
-<%-- 
-    Document   : RegistrarCLi
-    Created on : 25/10/2019, 01:23:18 PM
-    Author     : LUZDA
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
