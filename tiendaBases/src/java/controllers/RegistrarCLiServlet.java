@@ -1,5 +1,6 @@
 package controllers;
 
+import gestores.GestionCliente;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -26,6 +27,8 @@ public class RegistrarCLiServlet extends HttpServlet {
         
         Cliente paco= new Cliente(req.getParameter("docu"),req.getParameter("name"),req.getParameter("tipo"),
                 req.getParameter("foto"), req.getParameter("Usu"), req.getParameter("passw"));
+        
+       
         
 
     }

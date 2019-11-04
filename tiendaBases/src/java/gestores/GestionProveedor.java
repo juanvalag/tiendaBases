@@ -39,7 +39,7 @@ public class GestionProveedor extends AbstractDB
             ex.printStackTrace();
         }
     }
-    public boolean GuardaDemandante(Proveedor prove) 
+    public boolean GuardaProveedor(Proveedor prove) 
     {
         boolean ok =false;
        try 

@@ -29,8 +29,9 @@ public class crearProveedor extends HttpServlet {
    
         Proveedor prove=new Proveedor(req.getParameter("idprove"),req.getParameter("nomProve"));
         
-        new GestionProveedor().GuardaDemandante(prove);
-        System.out.println("ya lo envie");
+         
+        new GestionProveedor().GuardaProveedor(prove);
+       
                 
         
         

@@ -5,6 +5,10 @@
         <group>
             <file>file:/C:/Users/LUZDA/Desktop/Proyecto%20Bases%203/tiendaBases/tiendaBases/src/java/gestores/GestionProveedor.java</file>
             <file>file:/C:/Users/LUZDA/Desktop/Proyecto%20Bases%203/tiendaBases/tiendaBases/web/crearProveedor.jsp</file>
+            <file>file:/C:/Users/LUZDA/Desktop/Proyecto%20Bases%203/tiendaBases/tiendaBases/src/java/Conexion/ConnectionDB.java</file>
+            <file>file:/C:/Users/LUZDA/Desktop/Proyecto%20Bases%203/tiendaBases/tiendaBases/src/java/controllers/RegistrarCLiServlet.java</file>
+            <file>file:/C:/Users/LUZDA/Desktop/Proyecto%20Bases%203/tiendaBases/tiendaBases/src/java/gestores/GestionCliente.java</file>
+            <file>file:/C:/Users/LUZDA/Desktop/Proyecto%20Bases%203/tiendaBases/tiendaBases/src/java/Conexion/AbstractDB.java</file>
             <file>file:/C:/Users/LUZDA/Desktop/Proyecto%20Bases%203/tiendaBases/tiendaBases/src/java/controllers/crearProveedor.java</file>
         </group>
     </open-files>
