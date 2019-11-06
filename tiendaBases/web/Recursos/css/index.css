@@ -33,7 +33,7 @@ nav.navCreaUser label{
 /* iniciarSesion.jsp*/
 
 div.loginForm{
-
+    border: 1px black solid;
     justify-content:  center;
     display: flex;
     padding: 20px;
