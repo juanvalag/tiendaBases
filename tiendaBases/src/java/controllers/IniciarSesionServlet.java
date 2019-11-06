@@ -17,17 +17,23 @@ import javax.servlet.http.HttpServletResponse;
  * @author USUARIO
  */
 @WebServlet(name = "IniciarSesion", urlPatterns = {"/sesion/iniciar"})
-public class IniciarSesion extends HttpServlet {
+public class IniciarSesionServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException 
+    {
         this.getServletContext().getRequestDispatcher("/iniciarSesion.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException 
+    {
+        
+        
+        
+        
 
     }
 

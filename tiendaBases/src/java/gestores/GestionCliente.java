@@ -13,6 +13,8 @@ import conexion.AbstractDB;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 
 import model.Cliente;
@@ -63,7 +65,51 @@ public class GestionCliente extends AbstractDB
     }
     
     
-    /* public Usuario BuscaDemandante(String id)
+    
+    
+    
+        public ArrayList<Cliente> getTodos() 
+    
+    {
+        ArrayList<Cliente> clientes=new ArrayList();
+        try
+        {
+            Statement stmt=this.conn.createStatement();
+            ResultSet res=stmt.executeQuery("call getAllUsuarios()");
+             while(res.next())
+        {
+           Cliente paco= new Cliente();
+           paco.setId(res.getString("idUsuario"));
+           paco.setNombre(res.getString("Nombre"));
+           paco.setDireccion(res.getString("Direccion"));
+           paco.setTelefono(res.getString("Telefono"));
+           paco.setNomFoto(res.getString("NombreFoto"));
+           paco.setTipo(res.getString("Tipo"));
+           paco.setNomUsuario(res.getString("NombreUsuario"));
+           paco.setPass(res.getString("Passw"));
+           
+          
+           clientes.add(paco);
+           
+        }
+            res.close();
+            
+        }
+        catch(SQLException ex)
+        {
+            System.out.println(ex);
+        }
+        return clientes;
+        
+        
+        
+ }
+
+}
+
+
+
+   /* public Usuario BuscaDemandante(String id)
     {
         Usuario dema=null;
        
@@ -197,9 +243,3 @@ public class GestionCliente extends AbstractDB
     
     
     */
-
-    
-}
-
-
-

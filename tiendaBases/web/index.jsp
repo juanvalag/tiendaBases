@@ -26,6 +26,9 @@
                     <label>Nombre de Usuario:</label><input type="text" name="Usu" value="" required>  <br><br>
                     <label> Contraseña:</label> <input type="password" name="passw" value="" required>  <br><br>
                     <input type="submit" name="Crear" value="Crear"><br>
+                   
+                      
+       
                 </form>
             </section>
         </div>
