@@ -5,7 +5,7 @@
  */
 package gestores;
 
-import Conexion.AbstractDB;
+import conexion.AbstractDB;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

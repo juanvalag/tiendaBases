@@ -23,9 +23,10 @@ public class ConnectionDB
     {        
 
 
-        this.url = "jdbc:mysql://localhost:3306/tiendaBases";
+        this.url = "jdbc:mysql://localhost:3306/mydb";
         this.username = "root";
-        this.password = "MySQLRoot";
+        this.password = "a123456789";
+              //  this.password = "MySQLRoot";
 
         try 
         {
@@ -35,6 +36,8 @@ public class ConnectionDB
             this.conn = DriverManager.getConnection(this.url, this.username, this.password);
             if(this.conn!=null)
                 System.out.println("Todo bien..estamos conectados..!!");
+            else 
+                System.out.println("No se pudo conectar");
         } 
         catch (SQLException e) 
         {
