@@ -65,7 +65,7 @@ public class GestionCliente extends AbstractDB
     }
     
     
-    
+   
     
     
         public ArrayList<Cliente> getTodos() 

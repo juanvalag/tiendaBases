@@ -5,12 +5,19 @@
  */
 package controllers;
 
+import gestores.GestionAdministrador;
+import gestores.GestionCliente;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import model.Administrador;
+import model.Cliente;
+import model.Usuario;
 
 /**
  *
@@ -31,7 +38,18 @@ public class IniciarSesionServlet extends HttpServlet {
             throws ServletException, IOException 
     {
         
+        HttpSession sesion = request.getSession();
         
+        
+        GestionCliente gest = new GestionCliente();
+        GestionAdministrador gest2 = new GestionAdministrador();
+        
+     
+        
+        
+//        Usuario usu =new Usuario(request.getParameter("usename"),request.getParameter("password"));
+//        sesion.setAttribute("usuario", usu);
+      
         
         
 
