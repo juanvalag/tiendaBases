@@ -23,6 +23,11 @@
                 
                 
             </form>
+            <section>
+                <p>
+                    ${mensaje}
+                </p>
+            </section>
         </section>
 
     </body>
