@@ -9,10 +9,6 @@ import conexion.AbstractDB;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import java.sql.Statement;
-import java.util.ArrayList;
-import javax.swing.JOptionPane;
 import model.Proveedor;
 
 /**
@@ -31,7 +27,7 @@ public class GestionProveedor extends AbstractDB
     {
         try
         {
-            this.conn.close();
+            this.conexionSQL.close();
             System.out.println("tranquilos he cerrado la conexion...!!");
         }
         catch (SQLException ex)
@@ -45,7 +41,7 @@ public class GestionProveedor extends AbstractDB
        try 
        {
            ResultSet res;
-           PreparedStatement stmt= this.conn.prepareStatement("call newProveedor(?,?)");
+           PreparedStatement stmt = this.conexionSQL.prepareStatement("call newProveedor(?,?)");
            stmt.setString(1, prove.getId());
            stmt.setString(2, prove.getNombre());
            res=stmt.executeQuery();

@@ -15,8 +15,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
-
 import model.Cliente;
 
 public class GestionCliente extends AbstractDB  
@@ -38,7 +36,7 @@ public class GestionCliente extends AbstractDB
 
            
 
-           PreparedStatement stmt = this.conn.prepareStatement("call newCliente(?,?,?,?,?,?,?,?)");
+           PreparedStatement stmt = this.conexionSQL.prepareStatement("call newCliente(?,?,?,?,?,?,?,?)");
            stmt.setString(1, cli.getId());
            stmt.setString(2, cli.getNombre());
            stmt.setString(3, cli.getTipo());
@@ -65,7 +63,26 @@ public class GestionCliente extends AbstractDB
     }
     
     
-   
+    public Cliente getCliente(String nombreUs, String pass) {
+        Cliente cli = null;
+        try {
+            ResultSet contenedorEjecucion;
+            PreparedStatement preparador = this.conexionSQL.prepareStatement("call getCliente(?,?)");
+            preparador.setString(1, nombreUs);
+            preparador.setString(2, pass);
+            contenedorEjecucion = preparador.executeQuery();
+            //String id, String nombre, String nomUsuario, String passw, String tipo, String nomFoto, String tel, String dir
+            while (contenedorEjecucion.next()) {
+                cli = new Cliente(contenedorEjecucion.getString("idUsuario"), contenedorEjecucion.getString("Nombre"),
+                        contenedorEjecucion.getString("NombreUsuario"), contenedorEjecucion.getString("Passw"), contenedorEjecucion.getString("NombreFoto"),
+                        contenedorEjecucion.getString("Telefono"), contenedorEjecucion.getString("Telefono"),
+                        contenedorEjecucion.getString("Direccion"));
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return cli;
+    }
     
     
         public ArrayList<Cliente> getTodos() 
@@ -74,7 +91,7 @@ public class GestionCliente extends AbstractDB
         ArrayList<Cliente> clientes=new ArrayList();
         try
         {
-            Statement stmt=this.conn.createStatement();
+            Statement stmt = this.conexionSQL.createStatement();
             ResultSet res=stmt.executeQuery("call getAllUsuarios()");
              while(res.next())
         {
@@ -117,7 +134,7 @@ public class GestionCliente extends AbstractDB
         {
              
          ResultSet res;
-          PreparedStatement stmt= this.conn.prepareStatement("call getCliente(?)");
+          PreparedStatement stmt= this.conexionSQL.prepareStatement("call getCliente(?)");
           stmt.setString(1, id);
            res=stmt.executeQuery();
    
@@ -149,7 +166,7 @@ public class GestionCliente extends AbstractDB
         ArrayList<Cliente> demandantes=new ArrayList();
         try
         {
-            Statement stmt=this.conn.createStatement();
+            Statement stmt=this.conexionSQL.createStatement();
             ResultSet res=stmt.executeQuery("call getAllClientes()");
              while(res.next())
         {
@@ -185,7 +202,7 @@ public class GestionCliente extends AbstractDB
         {
           ResultSet res;
           
-          PreparedStatement stmt= this.conn.prepareStatement("call modifyCliente(?,?,?,?,?,?)");
+          PreparedStatement stmt= this.conexionSQL.prepareStatement("call modifyCliente(?,?,?,?,?,?)");
           
            stmt.setString(1, dema.getIdCliente());
            stmt.setString(2, dema.getNombre());
@@ -221,7 +238,7 @@ public class GestionCliente extends AbstractDB
         try
         {
             
-             PreparedStatement stmt=this.conn.prepareStatement("call DeleteCliente(?)");
+             PreparedStatement stmt=this.conexionSQL.prepareStatement("call DeleteCliente(?)");
              
              stmt.setString(1, id);
              stmt.execute();

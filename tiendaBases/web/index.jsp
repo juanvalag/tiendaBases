@@ -31,7 +31,10 @@
        
                 </form>
             </section>
-        </div>
+    <section>
+        <h1>${mensaje}</h1>
+    </section>
+</div>
         </div>
         <script src="/tiendaBases/Recursos/JS/index.js">
         </script>
