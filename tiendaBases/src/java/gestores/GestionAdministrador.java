@@ -6,14 +6,12 @@
 package gestores;
 
 import conexion.AbstractDB;
-import conexion.AbstractDB;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import model.Administrador;
-import model.Cliente;
 
 
 
@@ -28,6 +26,28 @@ public class GestionAdministrador extends AbstractDB
     public GestionAdministrador() {
         super();
     }
+
+    public Administrador getAdmin(String nombreUs, String pass) {
+        Administrador admin = null;
+        try {
+            ResultSet contenedorEjecucion;
+            PreparedStatement preparador = this.conexionSQL.prepareStatement("call getAdmin(?,?)");
+            preparador.setString(1, nombreUs);
+            preparador.setString(2, pass);
+            contenedorEjecucion = preparador.executeQuery();
+            //String id, String nombre, String nomUsuario, String passw, String nomFoto,String tipo
+            while (contenedorEjecucion.next()) {
+                admin = new Administrador(contenedorEjecucion.getString("idUsuario"), contenedorEjecucion.getString("Nombre"),
+                        contenedorEjecucion.getString("NombreUsuario"), contenedorEjecucion.getString("Passw"), contenedorEjecucion.getString("NombreFoto"),
+                        contenedorEjecucion.getString("Tipo"));
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return admin;
+    }
+
+
     public boolean guardaAdmi(Administrador admi)    {
         boolean ok =false;
        try 
@@ -36,7 +56,7 @@ public class GestionAdministrador extends AbstractDB
 
            
 
-           PreparedStatement stmt = this.conn.prepareStatement("call newAdministrador(?,?,?,?,?,?)");
+           PreparedStatement stmt = this.conexionSQL.prepareStatement("call newAdministrador(?,?,?,?,?,?)");
            stmt.setString(1, admi.getId());
            stmt.setString(2, admi.getNombre());
            stmt.setString(3, admi.getTipo());
@@ -59,6 +79,7 @@ public class GestionAdministrador extends AbstractDB
         return ok;
 
     }
+
     
     
     
@@ -69,7 +90,7 @@ public class GestionAdministrador extends AbstractDB
         ArrayList<Administrador> admis=new ArrayList();
         try
         {
-            Statement stmt=this.conn.createStatement();
+            Statement stmt = this.conexionSQL.createStatement();
             ResultSet res=stmt.executeQuery("call getAllUsuarios()");
              while(res.next())
         {

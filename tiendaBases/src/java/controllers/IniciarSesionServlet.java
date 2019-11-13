@@ -8,7 +8,6 @@ package controllers;
 import gestores.GestionAdministrador;
 import gestores.GestionCliente;
 import java.io.IOException;
-import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,7 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Administrador;
-import model.Cliente;
 import model.Usuario;
 
 /**
@@ -37,29 +35,33 @@ public class IniciarSesionServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException 
     {
-        
-        HttpSession sesion = request.getSession();
-        
-        
-        GestionCliente gest = new GestionCliente();
-        GestionAdministrador gest2 = new GestionAdministrador();
-        
-     
-        
-        
-//        Usuario usu =new Usuario(request.getParameter("usename"),request.getParameter("password"));
-//        sesion.setAttribute("usuario", usu);
-      
-        
-        
-
+        String usuario = request.getParameter("usename"), pass = request.getParameter("password");
+        System.out.println("use: " + usuario + "pass: " + pass);
+        GestionCliente gc = new GestionCliente();
+        GestionAdministrador ga = new GestionAdministrador();
+        Usuario tempoCli = gc.getCliente(usuario, pass);
+        String url = "";
+        HttpSession sesion;
+        if (tempoCli != null) {
+            url = "/index.jsp";
+            sesion = request.getSession();
+            sesion.setAttribute("usuario", tempoCli);
+            sesion.setAttribute("cliente", true);
+        } else {
+            Administrador tempoAdmi = ga.getAdmin(usuario, pass);
+            if (tempoAdmi != null) {
+                url = "/crea_producto.jsp";
+                sesion = request.getSession();
+                sesion.setAttribute("usuario", tempoAdmi);
+                sesion.setAttribute("admin", true);
+            } else {
+                url = "/index.jsp";
+                request.setAttribute("mensaje", "El nombre de usuario o contraseña son incorrectos");
+            }
+        }
+        this.getServletContext().getRequestDispatcher(url).forward(request, response);
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
     @Override
     public String getServletInfo() {
         return "Short description";

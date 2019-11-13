@@ -67,3 +67,19 @@ nav.navBar ul li a{
     background-repeat: no-repeat;
 
 }
+
+nav.navBar div div.linkProducDeslis {
+    display:none;
+}
+
+nav.navBar div div.linkVentaDeslis {
+    display:none;
+}
+
+nav.navBar div div.linkProveeDeslis {
+    display:none;
+}
+
+nav.navBar div div.linkCompraDeslis{
+    display: none;
+}

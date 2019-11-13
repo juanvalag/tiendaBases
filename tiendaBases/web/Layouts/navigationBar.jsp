@@ -1,5 +1,13 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+   boolean cliente = false, admin = false;
+    if (request.getSession().getAttribute("cliente") != null) {
+        cliente = true;
+    } else if (request.getSession().getAttribute("admin") != null) {
+        admin = true;
+        }
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -40,8 +48,13 @@
                         <div class="linkProveeContendor">
                                 <li><p>Proveedores</p></li> 
                                 <div class="linkProveeDeslis">
+<<<<<<< HEAD
                                     <li><a href="/tiendaBases/proveedores/operaciones">Operaciones</a></li>   
                                     <li><a href="/tiendaBases/proveedores/todos">Ver Proveedores</a></li>
+=======
+                                    <li><a href="/proveedores/operaciones">Añadir</a></li>   
+                                    <li><a href="/proveedores/todos">Ver Proveedores</a></li>
+>>>>>>> b79254f4e7a132253c0e4055c7b05c0370c08467
                                 </div>
                         </div>
                         <div class="linkCompraContendor">
@@ -54,8 +67,13 @@
                                 </div>
                     </c:if>
                     <c:if test="${!admin && !cliente}">
+<<<<<<< HEAD
                         <li><a href="/tiendaBases/tiendaBases">Inicio</a></li>  
                         <li><a href="sesion/iniciar">Iniciar Sesión</a></li>  
+=======
+                        <li><a href="/tiendaBases">Inicio</a></li>  
+                        <li><a href="/tiendaBases/sesion/iniciar">Iniciar Sesión</a></li>  
+>>>>>>> b79254f4e7a132253c0e4055c7b05c0370c08467
 
                     </c:if>
                 </ul>
