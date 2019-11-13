@@ -17,6 +17,11 @@
                 
                 
             </form>
+            <section>
+                <p>
+                    ${mensaje}
+                </p>
+            </section>
         </section>
 </div>
 </body>

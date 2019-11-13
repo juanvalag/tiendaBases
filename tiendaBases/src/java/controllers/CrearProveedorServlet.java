@@ -20,7 +20,7 @@ import model.Proveedor;
         name ="crearProveedor" ,    
         urlPatterns = {"/crearProveedor"}   
     )
-public class crearProveedor extends HttpServlet {
+public class CrearProveedorServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)

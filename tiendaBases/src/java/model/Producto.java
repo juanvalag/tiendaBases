@@ -39,19 +39,11 @@ public class Producto implements Serializable {
         this.id = id;
     }
 
-    public int getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(int precio) {
-        this.precio = precio;
-    }
-
-    public String getProveedor() {
+    public String getNombre() {
         return nombre;
     }
 
-    public void setProveedor(String nombre) {
+    public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
@@ -63,14 +55,6 @@ public class Producto implements Serializable {
         this.nomFoto = nomFoto;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
     public int getExistencias() {
         return existencias;
     }
@@ -78,6 +62,15 @@ public class Producto implements Serializable {
     public void setExistencias(int existencias) {
         this.existencias = existencias;
     }
+
+    public int getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(int precio) {
+        this.precio = precio;
+    }
+
 
     @Override
     public String toString() {
