@@ -50,7 +50,7 @@ public class IniciarSesionServlet extends HttpServlet {
         } else {
             Administrador tempoAdmi = ga.getAdmin(usuario, pass);
             if (tempoAdmi != null) {
-                url = "/crea_producto.jsp";
+                url = "/crearProducto.jsp";
                 sesion = request.getSession();
                 sesion.setAttribute("usuario", tempoAdmi);
                 sesion.setAttribute("admin", true);
