@@ -23,26 +23,27 @@
                 <ul>
                     <c:if test="${cliente}">
                         <div class="linkProducContendor">
-                            <li><a href="/productos">Comprar</a></li> 
+                            <li><a href="/tiendaBases/productos">Productos</a></li> 
                             <div class="linkProducDeslis">    
-                                <li><a href="/productos/ventas">Carrito de Compra</a></li> 
-                                <li><a href="/productos/todos">Ver Productos</a></li> 
+                                <li><a href="/tiendaBases/productos/ventas">Carrito de Compra</a></li> 
+                                <li><a href="/tiendaBases/productos/todos">Ver Productos</a></li> 
                             </div>
                         </div> 
                         <div class="linkVentaContendor">
                             <li><a href="/productos">Información Compras</a></li> 
+
                             <div class="linkVentaDeslis">    
-                                <li><a href="/usuario/ventas">Productos Comprados</a></li> 
-                                <li><a href="/usuario/deudas">Deudas</a></li> 
+                                <li><a href="/tiendaBases/usuario/ventas">Productos Comprados</a></li> 
+                                <li><a href="/tiendaBases/usuario/deudas">Deudas</a></li> 
                             </div>
                         </div> 
                     </c:if>
                     <c:if test="${admin}">
                         <div class="linkProducContendor">
-                        <li><a href="/productos">Productos</a></li> 
+                        <li><a href="/tiendaBases/productos">Productos</a></li> 
                         <div class="linkProducDeslis">
-                            <li><a href="/productos/operaciones">Operaciones</a></li> 
-                                <li><a href="/productos/todos-admin">Ver Productos</a></li> 
+                            <li><a href="/tiendaBases/productos/operaciones">Operaciones</a></li> 
+                                <li><a href="/tiendaBases/productos/todos-admin">Ver Productos</a></li> 
                         </div>
                         </div>
                         <div class="linkProveeContendor">
@@ -55,13 +56,14 @@
                         <div class="linkCompraContendor">
                                     <li><p>Compras Productos</p></li> 
                                     <div class="linkCompraDeslis">
-                                        <li><a href="/compras/operaciones">Comprar</a></li>   
-                                        <li><a href="/proveedores/todos">Ver Compras</a></li>
-                                        <li><a href="/proveedores/deudas">Deudas</a></li>
+                                        <li><a href="/tiendaBases/compras/operaciones">Comprar</a></li>   
+                                        <li><a href="/tiendaBases/proveedores/todos">Ver Compras</a></li>
+                                        <li><a href="/tiendaBases/proveedores/deudas">Deudas</a></li>
                                     </div>
                                 </div>
                     </c:if>
                     <c:if test="${!admin && !cliente}">
+
                         <li><a href="/tiendaBases">Inicio</a></li>  
                         <li><a href="/tiendaBases/sesion/iniciar">Iniciar Sesión</a></li>  
 

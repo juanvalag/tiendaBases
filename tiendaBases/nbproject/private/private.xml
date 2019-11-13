@@ -4,6 +4,7 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <file>file:/C:/Users/USUARIO/Downloads/Universidad/Tercer%20Semestre/Fundamentos%20de%20Bases/Repositorio/tiendaBases/tiendaBases/src/java/controllers/RegistrarAdmiServlet.java</file>
             <file>file:/C:/Users/USUARIO/Downloads/Universidad/Tercer%20Semestre/Fundamentos%20de%20Bases/Repositorio/tiendaBases/tiendaBases/src/java/controllers/CrearProductoServlet.java</file>
             <file>file:/C:/Users/USUARIO/Downloads/Universidad/Tercer%20Semestre/Fundamentos%20de%20Bases/Repositorio/tiendaBases/tiendaBases/web/Recursos/css/navigationBar.css</file>
@@ -30,6 +31,17 @@
             <file>file:/C:/Users/LUZDA/Desktop/Proyecto%20Bases%203/tiendaBases/tiendaBases/web/crearProducto.jsp</file>
             <file>file:/C:/Users/LUZDA/Desktop/Proyecto%20Bases%203/tiendaBases/tiendaBases/web/RegistrarCLi.jsp</file>
 >>>>>>> 11b715f7df2291b9fbce498354b1c6c54fdf08cf
+=======
+            <file>file:/C:/Users/LUZDA/Desktop/Proyecto%20Bases%203/tiendaBases/tiendaBases/web/Layouts/navigationBar.jsp</file>
+            <file>file:/C:/Users/LUZDA/Desktop/Proyecto%20Bases%203/tiendaBases/tiendaBases/web/crearProveedor.jsp</file>
+            <file>file:/C:/Users/LUZDA/Desktop/Proyecto%20Bases%203/tiendaBases/tiendaBases/web/WEB-INF/crearCompra.jsp</file>
+            <file>file:/C:/Users/LUZDA/Desktop/Proyecto%20Bases%203/tiendaBases/tiendaBases/src/java/controllers/IniciarSesionServlet.java</file>
+=======
+            <file>file:/C:/Users/USUARIO/Downloads/Universidad/Tercer%20Semestre/Fundamentos%20de%20Bases/Repositorio/tiendaBases/tiendaBases/web/Layouts/navigationBar.jsp</file>
+            <file>file:/C:/Users/USUARIO/Downloads/Universidad/Tercer%20Semestre/Fundamentos%20de%20Bases/Repositorio/tiendaBases/tiendaBases/src/java/controllers/IniciarSesionServlet.java</file>
+            <file>file:/C:/Users/USUARIO/Downloads/Universidad/Tercer%20Semestre/Fundamentos%20de%20Bases/Repositorio/tiendaBases/tiendaBases/src/java/controllers/CrearProductoServlet.java</file>
+>>>>>>> b79254f4e7a132253c0e4055c7b05c0370c08467
+>>>>>>> 2184a2223ea34eb9eb12d66be084fc6bb04d79cd
         </group>
     </open-files>
 </project-private>
