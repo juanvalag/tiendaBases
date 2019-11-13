@@ -3,25 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/LUZDA/Desktop/Proyecto%20Bases%203/tiendaBases/tiendaBases/src/java/controllers/IniciarSesionServlet.java</file>
-            <file>file:/C:/Users/LUZDA/Desktop/Proyecto%20Bases%203/tiendaBases/tiendaBases/src/java/controllers/RegistrarAdmiServlet.java</file>
-            <file>file:/C:/Users/LUZDA/Desktop/Proyecto%20Bases%203/tiendaBases/tiendaBases/src/java/controllers/RegistrarCLiServlet.java</file>
-            <file>file:/C:/Users/LUZDA/Desktop/Proyecto%20Bases%203/tiendaBases/tiendaBases/src/java/gestores/GestionAdministrador.java</file>
-            <file>file:/C:/Users/LUZDA/Desktop/Proyecto%20Bases%203/tiendaBases/tiendaBases/web/iniciarSesion.jsp</file>
-            <file>file:/C:/Users/LUZDA/Desktop/Proyecto%20Bases%203/tiendaBases/tiendaBases/src/java/model/Proveedor.java</file>
-            <file>file:/C:/Users/LUZDA/Desktop/Proyecto%20Bases%203/tiendaBases/tiendaBases/src/java/controllers/CrearProductoServlet.java</file>
-            <file>file:/C:/Users/LUZDA/Desktop/Proyecto%20Bases%203/tiendaBases/tiendaBases/src/java/model/Cliente.java</file>
-            <file>file:/C:/Users/LUZDA/Desktop/Proyecto%20Bases%203/tiendaBases/tiendaBases/src/java/gestores/GestionProveedor.java</file>
+            <file>file:/C:/Users/LUZDA/Desktop/Proyecto%20Bases%203/tiendaBases/tiendaBases/web/Layouts/navigationBar.jsp</file>
             <file>file:/C:/Users/LUZDA/Desktop/Proyecto%20Bases%203/tiendaBases/tiendaBases/web/crearProveedor.jsp</file>
-            <file>file:/C:/Users/LUZDA/Desktop/Proyecto%20Bases%203/tiendaBases/tiendaBases/src/java/model/Usuario.java</file>
-            <file>file:/C:/Users/LUZDA/Desktop/Proyecto%20Bases%203/tiendaBases/tiendaBases/src/java/Conexion/ConnectionDB.java</file>
-            <file>file:/C:/Users/LUZDA/Desktop/Proyecto%20Bases%203/tiendaBases/tiendaBases/src/java/model/Administrador.java</file>
-            <file>file:/C:/Users/LUZDA/Desktop/Proyecto%20Bases%203/tiendaBases/tiendaBases/web/index.jsp</file>
-            <file>file:/C:/Users/LUZDA/Desktop/Proyecto%20Bases%203/tiendaBases/tiendaBases/src/java/gestores/GestionCliente.java</file>
-            <file>file:/C:/Users/LUZDA/Desktop/Proyecto%20Bases%203/tiendaBases/tiendaBases/src/java/Conexion/AbstractDB.java</file>
-            <file>file:/C:/Users/LUZDA/Desktop/Proyecto%20Bases%203/tiendaBases/tiendaBases/src/java/controllers/crearProveedor.java</file>
-            <file>file:/C:/Users/LUZDA/Desktop/Proyecto%20Bases%203/tiendaBases/tiendaBases/web/crearProducto.jsp</file>
-            <file>file:/C:/Users/LUZDA/Desktop/Proyecto%20Bases%203/tiendaBases/tiendaBases/web/RegistrarCLi.jsp</file>
+            <file>file:/C:/Users/LUZDA/Desktop/Proyecto%20Bases%203/tiendaBases/tiendaBases/web/WEB-INF/crearCompra.jsp</file>
+            <file>file:/C:/Users/LUZDA/Desktop/Proyecto%20Bases%203/tiendaBases/tiendaBases/src/java/controllers/IniciarSesionServlet.java</file>
         </group>
     </open-files>
 </project-private>

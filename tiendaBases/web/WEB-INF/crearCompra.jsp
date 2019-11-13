@@ -9,9 +9,24 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Compra</title>
     </head>
+    
     <body>
-        <h1>Hello World!</h1>
+       <section>
+            <header>
+                <h1>Compra:</h1>
+            </header>  
+           
+        </section>
+        
+        <section id="formulario">
+            <form action="crearProveedor" method="POST">
+                <input type="text" name="idComp" placeholder="Ingrese el ID del proveedor" ><br><br>
+                <input type="text" name="nomProve" placeholder="Ingrese el Nombre del proveedor" > <br><br>
+                <input type="submit" name="Crear"  value="Crear"><br>
+            </form>
+        </section>
+        
     </body>
 </html>
