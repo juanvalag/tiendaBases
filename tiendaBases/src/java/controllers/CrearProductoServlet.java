@@ -5,19 +5,20 @@
  */
 package controllers;
 import gestores.GestionProducto;
+import gestores.GestionProveedor;
 import java.io.IOException;
 import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Producto;
+import model.Proveedor;
 
 @WebServlet(
         name ="crearProducto" ,    
-        urlPatterns = {"/crearProducto"}    )
+        urlPatterns = {"/productos/crearProducto"})
 public class CrearProductoServlet extends HttpServlet {
 
     @Override
@@ -48,10 +49,17 @@ public class CrearProductoServlet extends HttpServlet {
 
            gp.guardaProducto(pro);
         }
-      
-        
-    
-        
-       
+
     }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        GestionProveedor gp = new GestionProveedor();
+        ArrayList<Proveedor> proves = gp.getTodos();
+        req.setAttribute("proveedores", proves);
+        this.getServletContext().getRequestDispatcher("/crearProducto.jsp").forward(req, resp);
+
+    }
+    
+    
 }
