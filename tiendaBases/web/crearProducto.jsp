@@ -12,9 +12,9 @@
                 Foto del producto: <input type="file" name="foto" value="">  <br><br>
                 Precio de la venta: <input type="number" name="precio" placeholder="Ingrese el ID del producto"><br><br>
                 <label>Seleccione el proveedor a añadir: </label>
-                <select name="selectProves">
+                <select name="selectProves" onchange="anadirProveedor(e)">
                     <c:forEach var="tempProve" items="${proveedores}">
-                        <option class="proves" id="${tempProve.getId()}" onClick="(e) =>alert(e);">${tempProve.getNombre()}</option>
+                        <option class="proves" id="${tempProve.getId()}" >${tempProve.getNombre()}</option>
                     </c:forEach>
                 </select>
                 <table>
