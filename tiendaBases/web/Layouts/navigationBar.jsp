@@ -40,17 +40,18 @@
                     </c:if>
                     <c:if test="${admin}">
                         <div class="linkProducContendor">
-                        <li><a href="/tiendaBases/productos">Productos</a></li> 
-                        <div class="linkProducDeslis">
-                            <li><a href="/tiendaBases/productos/operaciones">Operaciones</a></li> 
+                            <li><p>Producto</p></li> 
+                            <div class="linkProducDeslis">
+                                <li><a href="/tiendaBases/productos/crearProducto">Crear Producto</a></li> 
+                                <li><a href="/tiendaBases/productos/buscar">Operaciones</a></li> 
                                 <li><a href="/tiendaBases/productos/todos-admin">Ver Productos</a></li> 
                         </div>
                         </div>
                         <div class="linkProveeContendor">
                                 <li><p>Proveedores</p></li> 
                                 <div class="linkProveeDeslis">
-                                    <li><a href="/proveedores/operaciones">Añadir</a></li>   
-                                    <li><a href="/proveedores/todos">Ver Proveedores</a></li>
+                                    <li><a href="/tiendaBases/proveedores/crearProveedor">Añadir</a></li>   
+                                    <li><a href="/tiendaBases/proveedores/todos">Ver Proveedores</a></li>
                                 </div>
                         </div>
                         <div class="linkCompraContendor">

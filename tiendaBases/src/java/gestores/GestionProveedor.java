@@ -9,6 +9,7 @@ import conexion.AbstractDB;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import model.Proveedor;
 
 /**
@@ -40,12 +41,12 @@ public class GestionProveedor extends AbstractDB
         boolean ok =false;
        try 
        {
-           ResultSet res;
-           PreparedStatement stmt = this.conexionSQL.prepareStatement("call newProveedor(?,?)");
-           stmt.setString(1, prove.getId());
-           stmt.setString(2, prove.getNombre());
-           res=stmt.executeQuery();
-           res.close();
+           ResultSet contenedorEjecucion;
+           PreparedStatement preparador = this.conexionSQL.prepareStatement("call newProveedor(?,?)");
+           preparador.setString(1, prove.getId());
+           preparador.setString(2, prove.getNombre());
+           contenedorEjecucion = preparador.executeQuery();
+           contenedorEjecucion.close();
            ok=true;
            
    
@@ -58,6 +59,25 @@ public class GestionProveedor extends AbstractDB
 
         
         return ok;
+
+    }
+
+    public ArrayList getTodos() {
+        ArrayList<Proveedor> proveedores = new ArrayList();
+        try {
+            ResultSet contenedorEjecucion;
+            PreparedStatement preparador = this.conexionSQL.prepareStatement("call getAllProveedor()");
+            contenedorEjecucion = preparador.executeQuery();
+            while (contenedorEjecucion.next()) {
+                proveedores.add(new Proveedor(contenedorEjecucion.getString("idProveedor"), contenedorEjecucion.getString("Nombre")));
+            }
+
+            contenedorEjecucion.close();
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+
+        return proveedores;
 
     }
 }
