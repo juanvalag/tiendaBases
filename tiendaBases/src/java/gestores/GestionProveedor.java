@@ -80,4 +80,6 @@ public class GestionProveedor extends AbstractDB
         return proveedores;
 
     }
+    
+  
 }
