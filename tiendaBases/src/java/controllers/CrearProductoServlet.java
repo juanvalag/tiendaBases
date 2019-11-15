@@ -47,7 +47,8 @@ public class CrearProductoServlet extends HttpServlet {
              Producto pro=new Producto(req.getParameter("idpro"),req.getParameter("namepro"),req.getParameter("foto"),
                                   Integer.parseInt(req.getParameter("precio")),Integer.parseInt(req.getParameter("cant")));
 
-           gp.guardaProducto(pro);
+            gp.guardaProducto(pro);
+
         }
 
     }
