@@ -42,3 +42,15 @@ div.loginForm{
     height: 500px;
     border-radius: 30px;
 }
+
+/* crearProducto.jsp*/
+
+.formCreaProduct{
+    display: inline;
+    /* margin:  Arriba | Derecha | Abajo | Izquierda */
+    padding: 20px;
+    background: rgba(255,255,255,0.8);
+    width: 60%;
+    height: 500px;
+    border-radius: 30px;
+}

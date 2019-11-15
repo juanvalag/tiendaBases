@@ -11,7 +11,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import model.Cliente;
 import model.Producto;
 
 /**
@@ -32,7 +31,7 @@ public class GestionProducto extends AbstractDB
 
            
 
-           PreparedStatement stmt = this.conn.prepareStatement("call newProducto(?,?,?,?,?)");
+           PreparedStatement stmt = this.conexionSQL.prepareStatement("call newProducto(?,?,?,?,?)");
            stmt.setString(1, pro.getId());
            stmt.setString(2, pro.getNombre());
            stmt.setString(3, pro.getNomFoto());
@@ -67,7 +66,7 @@ public class GestionProducto extends AbstractDB
         {
              
          ResultSet res;
-          PreparedStatement stmt= this.conn.prepareStatement("call getProducto(?)");
+            PreparedStatement stmt = this.conexionSQL.prepareStatement("call getProducto(?)");
           stmt.setString(1, id);
            res=stmt.executeQuery();
    
@@ -103,7 +102,7 @@ public class GestionProducto extends AbstractDB
         ArrayList<Producto> productos=new ArrayList();
         try
         {
-            Statement stmt=this.conn.createStatement();
+            Statement stmt = this.conexionSQL.createStatement();
             ResultSet res=stmt.executeQuery("call getAllProductos()");
              while(res.next())
         {
@@ -127,7 +126,7 @@ public class GestionProducto extends AbstractDB
         
         
         
- }
+    }
      
      
      
@@ -139,7 +138,7 @@ public class GestionProducto extends AbstractDB
         {
           ResultSet res;
           
-          PreparedStatement stmt= this.conn.prepareStatement("call modifyProducto(?,?,?,?,?,?)");
+            PreparedStatement stmt = this.conexionSQL.prepareStatement("call modifyProducto(?,?,?,?,?,?)");
           
            stmt.setString(1, pro.getId());
            stmt.setString(2, pro.getNombre());
@@ -176,7 +175,7 @@ public class GestionProducto extends AbstractDB
         try
         {
             
-             PreparedStatement stmt=this.conn.prepareStatement("call DeleteProducto(?)");
+            PreparedStatement stmt = this.conexionSQL.prepareStatement("call DeleteProducto(?)");
              
              stmt.setString(1, id);
              stmt.execute();

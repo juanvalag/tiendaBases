@@ -30,7 +30,8 @@
                             </div>
                         </div> 
                         <div class="linkVentaContendor">
-                            <li><a href="/tiendaBases/productos">Productos</a></li> 
+                            <li><a href="/productos">Información Compras</a></li> 
+
                             <div class="linkVentaDeslis">    
                                 <li><a href="/tiendaBases/usuario/ventas">Productos Comprados</a></li> 
                                 <li><a href="/tiendaBases/usuario/deudas">Deudas</a></li> 
@@ -48,7 +49,6 @@
                         <div class="linkProveeContendor">
                                 <li><p>Proveedores</p></li> 
                                 <div class="linkProveeDeslis">
-
                                     <li><a href="/proveedores/operaciones">Añadir</a></li>   
                                     <li><a href="/proveedores/todos">Ver Proveedores</a></li>
                                 </div>
