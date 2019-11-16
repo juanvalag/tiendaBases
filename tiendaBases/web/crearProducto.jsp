@@ -5,9 +5,8 @@
                 <h1>Crear un producto:</h1>
     </header>  
     <section id="formulario">
-            <form action="crearProducto" method="POST">
-                
-                ID del producto:<input type="text" name="idpro" placeholder="Ingrese el ID del producto" required><br><br>
+        <form action="/tiendaBases/productos/crearProducto" method="POST">
+            ID del producto:<input type="text" name="idpro" placeholder="Ingrese el ID del producto" required><br><br>
                 Nombre del producto:<input type="text" name="namepro" placeholder="Ingrese el Nombre del producto" required><br><br>
                 Foto del producto: <input type="file" name="foto" value="">  <br><br>
                 Precio de la venta: <input type="number" name="precio" placeholder="Ingrese el ID del producto" required><br><br>
