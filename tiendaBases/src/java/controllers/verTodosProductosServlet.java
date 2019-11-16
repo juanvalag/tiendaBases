@@ -25,7 +25,7 @@ import model.Proveedor;
  */
 @WebServlet(
         name = "verTodosProductos",
-        urlPatterns = {"/productos/todos"}
+        urlPatterns = {"/productos/todos-admin"}
 )
 public class verTodosProductosServlet extends HttpServlet {
 
