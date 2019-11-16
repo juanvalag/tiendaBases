@@ -6,6 +6,7 @@
 package controllers;
 
 import gestores.GestionProducto;
+import gestores.GestionProductoDelProveedor;
 import gestores.GestionProveedor;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Producto;
+import model.ProductoDelProveedor;
 import model.Proveedor;
 
 /**
@@ -22,8 +24,8 @@ import model.Proveedor;
  * @author USUARIO
  */
 @WebServlet(
-        name = "verTodosProveedorServlet",
-        urlPatterns = {"/proveedores/todos"}
+        name = "verTodosProductos",
+        urlPatterns = {"/productos/todos"}
 )
 public class verTodosProductosServlet extends HttpServlet {
 
@@ -32,8 +34,22 @@ public class verTodosProductosServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         GestionProducto gpro = new GestionProducto();
+        GestionProductoDelProveedor gpp= new GestionProductoDelProveedor();
         ArrayList<Producto> pross = gpro.getTodos();
+       
+        ArrayList<String>proves= new ArrayList();
+     
+        for(int i=0;i<pross.size();i++)
+        {       
+            
+           proves=gpp.getTodos(pross.get(i).getId());
+           String name= pross.get(i).getId();
+           request.setAttribute(name, proves);
+        }
+        
+       
         request.setAttribute("productos", pross);
+        
         this.getServletContext().getRequestDispatcher("/verTodosProductos.jsp").forward(request, response);
     }
 

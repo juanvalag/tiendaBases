@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import model.Producto;
+import model.Proveedor;
 
 /**
  *
@@ -66,7 +67,7 @@ public class GestionProducto extends AbstractDB
         {
              
          ResultSet res;
-            PreparedStatement stmt = this.conexionSQL.prepareStatement("call getProducto(?)");
+            PreparedStatement stmt = this.conexionSQL.prepareStatement("call getProductoprovee(?)");
           stmt.setString(1, id);
            res=stmt.executeQuery();
    
@@ -192,5 +193,7 @@ public class GestionProducto extends AbstractDB
         return ok;
                 
    }
+    
+   
     
 }

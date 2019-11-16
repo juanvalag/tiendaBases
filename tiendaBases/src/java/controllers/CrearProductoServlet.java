@@ -5,6 +5,7 @@
  */
 package controllers;
 import gestores.GestionProducto;
+import gestores.GestionProductoDelProveedor;
 import gestores.GestionProveedor;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -26,7 +27,10 @@ public class CrearProductoServlet extends HttpServlet {
             throws ServletException, IOException {
         
         GestionProducto gp=new GestionProducto();
+        GestionProductoDelProveedor gpp= new GestionProductoDelProveedor();
         ArrayList<Producto> productos= new ArrayList();
+        ArrayList<Proveedor> proves=new ArrayList();
+        
         productos=gp.getTodos();
         boolean existe=false;
         
@@ -47,7 +51,7 @@ public class CrearProductoServlet extends HttpServlet {
              Producto pro=new Producto(req.getParameter("idpro"),req.getParameter("namepro"),req.getParameter("foto"),
                                   Integer.parseInt(req.getParameter("precio")),Integer.parseInt(req.getParameter("cant")));
 
-            gp.guardaProducto(pro);
+            gp.guardaProducto(pro); 
 
         }
 

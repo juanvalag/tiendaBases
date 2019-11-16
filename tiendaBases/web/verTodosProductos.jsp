@@ -1,3 +1,5 @@
+<%@page import="model.Producto"%>
+<%@page import="java.util.ArrayList"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:import url="Layouts/navigationBar.jsp"/>
 <section class="verTodosProductos">
@@ -14,31 +16,31 @@
         
     </thead>
     <tbody>
-        <c:forEach var="tempPros" items="${productos}">
+        <% ArrayList <Producto> productos = (ArrayList)request.getAttribute("productos"); 
+         for(Producto temp: productos){
+        %>
             <tr>
-                <td>${tempPros.getNomFoto() }</td>
-                <td>${tempPros.getId()}</td>
-                <td>${tempPros.getNombre()}</td>
-                <td>${tempPros.getExistencias()}</td>
-                <td>${tempPros.getPrecio()}</td>
-                <td>${tempPros.getPrecio()}</td>
+                <td><%=temp.getNomFoto() %></td>
+                <td><%=temp.getId()%></td>
+                <td><%=temp.getNombre()%></td>
+                <td><%=temp.getExistencias()%></td>
+                <td><%=temp.getPrecio()%></td>
+               
                 <td>
                     <ul>
-                        
-                        <c:forEach var="temprove" items="${provedores}">
-                            
-                            
-                            
-                        </c:forEach>
-                        
+               
+                       <%
+                       ArrayList <String> proves= (ArrayList)request.getAttribute(temp.getId());
+                       for(String prove: proves){
+                       %>
+                       <li><%=prove%></li>
+                       <% } %>
                     </ul>
                         
-                    
-                    
-                    
                 </td>
             </tr>
-        </c:forEach>
+            
+            <% } %>
         </tbody>
     </table>
 
