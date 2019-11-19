@@ -174,11 +174,12 @@ public class GestionProducto extends AbstractDB
         
         try
         {
-            
-            PreparedStatement stmt = this.conexionSQL.prepareStatement("call DeleteProducto(?)");
+             ResultSet  algo;
+            PreparedStatement stmt = this.conexionSQL.prepareStatement("call deleteProducto(?)");
              
              stmt.setString(1, id);
-             stmt.execute();
+         algo  =  stmt.executeQuery();
+             algo.close();
              ok=true;       
               System.out.println("este");
         }

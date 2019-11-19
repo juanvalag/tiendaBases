@@ -31,13 +31,39 @@ public class ModificarProductoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException
     {
+     String url="/ModificarPro.jsp";
+        if(req.getParameter("busca")!= null){
       GestionProducto gp=new GestionProducto();
       Producto pro=new Producto();
-      pro=gp.BuscaProducto(req.getParameter("codElP"));
       
-      req.setAttribute("producto", pro);
+      pro=gp.BuscaProducto(req.getParameter("codElP"));
+      if(pro!=null)
+      {
+          req.setAttribute("producto", pro);
       req.setAttribute("existe", true);
-      this.getServletContext().getRequestDispatcher("/ModificarPro.jsp").forward(req, resp);
+      }
+        }else
+{      GestionProducto gp=new GestionProducto();
+        boolean listo;
+    Producto Pro = new Producto(req.getParameter("idp"),req.getParameter("namep"),req.getParameter("fotop"),
+                                Integer.parseInt(req.getParameter("preciop")),Integer.parseInt(req.getParameter("exisp")) ,Integer.parseInt(req.getParameter("preciop")));
+        
+   listo=gp.ModificaProducto(Pro, req.getParameter("idp"));
+   if(listo)
+   {
+       
+       System.out.println("Modificado");
+   }
+   
+   else
+   {
+       System.out.println("paila");
+   }
+              
+}
+    this.getServletContext().getRequestDispatcher(url).forward(req, resp);
+      
+      
         
     }
     
