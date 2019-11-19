@@ -38,23 +38,34 @@
                 <option class="${tempProduc.id}">${tempProduc.nombre}</option> 
             </c:forEach>
         </select>
+        <label>Cantidad: </label><input id="cantidad" type="number" value="1" min="1">
         <input type="checkbox" name="credito"> <label>¿Desea que sea a credito la compra? </label>
         <table>
             <thead>
             <th>Foto</th>
             <th>Nombre</th>
             <th>Precio</th>
-            <th>Cantidad</th>        
+            <th>Cantidad</th> 
             <th>SubTotal</th>
         </thead>
             <tbody id="tbody">
 
             </tbody>
         </table>
+        <input type="submit" value="Comprar">
     </form>
     <div id="productos" style="display: none;"><%out.print(objetojs);%></div>
     <section id="datos">
+        <input type="hidden" id="valorTotal" value="">
     </section>
+    <div>
+        <header>
+            <h1>Totales</h1>
+        </header>
+        <section>
+            <p id="total"></p>
+        </section>
+    </div>
 </section>
     </div>
     <script src="/tiendaBases/Recursos/JS/hacerCompra.js">

@@ -52,7 +52,12 @@ public class HacerCompraServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String[] productos = request.getParameterValues("productos");
+        String total = request.getParameter("valorTotal");
+        for (String temp : productos) {
+            String cantidad = request.getParameter(temp);
 
+        }
     }
 
     @Override
