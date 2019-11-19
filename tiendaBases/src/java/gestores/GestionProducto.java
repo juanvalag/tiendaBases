@@ -137,7 +137,7 @@ public class GestionProducto extends AbstractDB
         {
           ResultSet res;
           
-            PreparedStatement stmt = this.conexionSQL.prepareStatement("call modifyProducto(?,?,?,?,?,?)");
+            PreparedStatement stmt = this.conexionSQL.prepareStatement("call modifyProducto(?,?,?,?,?,?,?)");
           
            stmt.setString(1, pro.getId());
            stmt.setString(2, pro.getNombre());
@@ -165,23 +165,20 @@ public class GestionProducto extends AbstractDB
     }
      
     
-    public boolean eliminarProducto(String id) 
-   {
-                
-                
-                
-                    boolean ok=false;
+ public boolean eliminarProducto(String id)
+    {
+        
+        boolean ok=false;
         
         try
         {
-             ResultSet  algo;
-            PreparedStatement stmt = this.conexionSQL.prepareStatement("call deleteProducto(?)");
-             
+            
+             PreparedStatement stmt=this.conexionSQL.prepareStatement("call deleteProducto(?)");
              stmt.setString(1, id);
-         algo  =  stmt.executeQuery();
-             algo.close();
-             ok=true;       
-              System.out.println("este");
+             stmt.execute();
+            
+             ok=true;  
+               System.out.println("este");
         }
         catch(SQLException ex)
                 {
@@ -191,8 +188,12 @@ public class GestionProducto extends AbstractDB
         
         
         return ok;
-                
-   }
+    }
+    
+    
+    
+    
+    
     
     public ArrayList getProductosProve(String idProve) {
         ArrayList<Producto> productos = new ArrayList();
