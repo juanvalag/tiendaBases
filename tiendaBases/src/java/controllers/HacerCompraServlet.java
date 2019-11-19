@@ -28,23 +28,22 @@ public class HacerCompraServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         GestionProveedor gp = new GestionProveedor();
+        GestionProducto gproduct = new GestionProducto();
         ArrayList<Proveedor> allProves = gp.getTodos();
+        ArrayList<Producto> productos = gproduct.getTodos();
         String url = "", mensaje = "";
         if (allProves.size() > 0) {
-            GestionProducto gproduct = new GestionProducto();
-            ArrayList<Proveedor> provesaEnviar = new ArrayList();
-            for (Proveedor temp : allProves) {
-                ArrayList<Producto> productosDelProve = gproduct.getProductosProve(temp.getId());
-                if (productosDelProve.size() > 0) {
-                    provesaEnviar.add(temp);
-                    request.setAttribute(temp.getId(), productosDelProve);
-                }
+            if (productos.size() > 0) {
+                request.setAttribute("proveedores", allProves);
+                request.setAttribute("productos", productos);
+                url = "/hacerCompra.jsp";
+            } else {
+                mensaje = "No se ha creado ningún Producto";
+                url = "/productos/crearProducto";
             }
-            request.setAttribute("proveedores", provesaEnviar);
-            url = "/hacerCompra.jsp";
         } else {
             mensaje = "No se ha creado ningún proveedor";
-            url = "/productos/crearProducto";
+            url = "/proveedores/crearProveedor";
         }
         request.setAttribute("mensaje", mensaje);
         this.getServletContext().getRequestDispatcher(url).forward(request, response);

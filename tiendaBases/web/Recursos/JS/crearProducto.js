@@ -32,6 +32,7 @@ const anadirProveedor = () => {
             fila.appendChild(inputPrecioAnadir);
             document.getElementById("provesSeleccionados").appendChild(hiddenaAnadir);
             document.getElementById("tbody").appendChild(fila);
+            break;
         }
     }
 

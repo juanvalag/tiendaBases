@@ -4,27 +4,19 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:import url="Layouts/navigationBar.jsp"/>
 <%
-    ArrayList<Proveedor> proves = (ArrayList) request.getAttribute("proveedores");
-    String objetojs = "{";
-    for (int index = 0; index < proves.size(); index++) {
-            Proveedor temp = proves.get(index);
-        ArrayList<Producto> products = (ArrayList) request.getAttribute(temp.getId());
-        objetojs += "\"" + temp.getId() + "\":[";
-        for (int index2 = 0; index2 < products.size(); index2++) {
-                Producto pro = products.get(index2);
+
+        ArrayList<Producto> productos = (ArrayList) request.getAttribute("productos");
+        String objetojs = "[";
+        for (int index = 0; index < productos.size(); index++) {
+            Producto pro = productos.get(index);
             objetojs += "{\"id\":\"" + pro.getId()
-                        + "\",\"nombre\":\"" + pro.getNombre() + "\",\"foto\":\"" + pro.getNomFoto()
-                        + "\",\"precio\":" + pro.getPrecio() + ",\"cantidad\": 0}";
-                            if (index2 < products.size() - 1) {
-                                objetojs += ",";
-                            }
-        }
-        objetojs += "]";
-            if (index < proves.size() - 1) {
+                    + "\",\"nombre\":\"" + pro.getNombre() + "\",\"foto\":\"" + pro.getNomFoto()
+                    + "\",\"precioCompra\":\"" + pro.getPrecioCompra() + "\",\"cantidad\": 0}";
+            if (index < productos.size() - 1) {
                 objetojs += ",";
             }
-    }
-    objetojs += "}";
+        }
+            objetojs += "]";
 %>
 <section class="hacerCompra">
     <header>
@@ -33,33 +25,39 @@
     </header>
     <form action="/tiendaBases/compras/comprar" method="POST">
         <label>Seleccione un proveedor: </label>
-        <select>
+        <select id="provesSelect" onchange="anadirProveedor()">
             <option></option>
             <c:forEach var="tempProve" items="${proveedores}">
-                <option id="${tempProve.id}">${tempProve.nombre}</option> 
+                <option class="proves" id="${tempProve.id}">${tempProve.nombre}</option> 
             </c:forEach>
         </select>
-        <label>Seleccione un producto: </label>
-        <select>
+        <label>Seleccione uno o varios productos: </label>
+        <select id="products" onchange="anadirProductos()">
             <option></option>
+            <c:forEach var="tempProduc" items="${productos}">
+                <option class="${tempProduc.id}">${tempProduc.nombre}</option> 
+            </c:forEach>
         </select>
+        <input type="checkbox" name="credito"> <label>¿Desea que sea a credito la compra? </label>
         <table>
             <thead>
             <th>Foto</th>
             <th>Nombre</th>
             <th>Precio</th>
-            <th>Cantidad</th>
-            </thead>
+            <th>Cantidad</th>        
+            <th>SubTotal</th>
+        </thead>
             <tbody id="tbody">
 
             </tbody>
         </table>
     </form>
-    <div id="proves" style="display: none;"><%out.print(objetojs);%></div>
+    <div id="productos" style="display: none;"><%out.print(objetojs);%></div>
+    <section id="datos">
+    </section>
 </section>
     </div>
     <script src="/tiendaBases/Recursos/JS/hacerCompra.js">
-        
-</script>
+    </script>
 </body>
 </html>
