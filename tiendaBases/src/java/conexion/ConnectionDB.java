@@ -25,7 +25,7 @@ public class ConnectionDB
 
         this.url = "jdbc:mysql://localhost:3306/tiendaBases";
         this.username = "root";
-        this.password = "MySQLRoot";
+        this.password = "a123456789";
   
 
         try 

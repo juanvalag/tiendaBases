@@ -64,12 +64,38 @@ public GestionProductoDelProveedor(){
             System.out.println(ex);
         }
         return npps;
+    }
+        
+    
+        public boolean eliminarProducto(String cod)
+        {
+        boolean ok=false;
+        
+        try
+        {
+            
+             PreparedStatement stmt=this.conexionSQL.prepareStatement("call DeleteProducto(?)");
+             
+             stmt.setString(1, cod);
+             stmt.execute();
+             ok=true;       
+            
+        }
+        catch(SQLException ex)
+                {
+                    System.out.println(ex);
+                   
+                }
         
         
-        
+        return ok;
+        }
  }
 
 
 
 
-}
+
+
+
+
