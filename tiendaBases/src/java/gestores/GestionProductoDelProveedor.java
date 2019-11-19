@@ -11,7 +11,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import model.Producto;
 
 public class GestionProductoDelProveedor extends AbstractDB {
 
@@ -20,16 +19,14 @@ public GestionProductoDelProveedor(){
     super();
 }
 
-    public boolean guardaProduProve(Producto pro, String idProv, int precioCompra) {
+    public boolean guardaProduProve(String pro, String idProv) {
         boolean ok = false;
         try {
             ResultSet res;
 
-            PreparedStatement stmt = this.conexionSQL.prepareStatement("call newProduProve(?,?,?)");
-            System.out.println(pro.getId());
+            PreparedStatement stmt = this.conexionSQL.prepareStatement("call newProduProve(?,?)");
             stmt.setString(1, idProv);
-            stmt.setString(2, pro.getId());
-            stmt.setInt(3, precioCompra);
+            stmt.setString(2, pro);
             res = stmt.executeQuery();
             res.close();
             ok = true;

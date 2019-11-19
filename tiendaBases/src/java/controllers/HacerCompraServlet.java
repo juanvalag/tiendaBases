@@ -6,6 +6,7 @@
 package controllers;
 
 import gestores.GestionProducto;
+import gestores.GestionProductoDelProveedor;
 import gestores.GestionProveedor;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -54,8 +55,11 @@ public class HacerCompraServlet extends HttpServlet {
             throws ServletException, IOException {
         String[] productos = request.getParameterValues("productos");
         String total = request.getParameter("valorTotal");
+        String provee = request.getParameter("proveedor");
+        GestionProductoDelProveedor gpdp = new GestionProductoDelProveedor();
         for (String temp : productos) {
             String cantidad = request.getParameter(temp);
+            gpdp.guardaProduProve(temp, provee);
 
         }
     }
