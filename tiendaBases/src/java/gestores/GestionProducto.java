@@ -67,7 +67,7 @@ public class GestionProducto extends AbstractDB
         {
              
          ResultSet res;
-            PreparedStatement stmt = this.conexionSQL.prepareStatement("call getProductoprovee(?)");
+            PreparedStatement stmt = this.conexionSQL.prepareStatement("call getProductoSolo(?)");
           stmt.setString(1, id);
            res=stmt.executeQuery();
    

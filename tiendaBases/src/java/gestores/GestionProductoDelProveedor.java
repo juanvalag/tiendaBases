@@ -55,7 +55,7 @@ public GestionProductoDelProveedor(){
     }
         
     
-        private boolean eliminarProducto(String cod)
+        public boolean eliminarProducto(String cod)
         {
         boolean ok=false;
         

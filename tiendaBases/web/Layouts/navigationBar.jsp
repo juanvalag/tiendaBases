@@ -43,7 +43,7 @@
                             <li><p>Producto</p></li> 
                             <div class="linkProducDeslis">
                                 <li><a href="/tiendaBases/productos/crearProducto">Crear Producto</a></li> 
-                                <li><a href="/tiendaBases/productos/buscar">Operaciones</a></li> 
+                                <li><a href="/tiendaBases/productos/ModificarPro">Operaciones</a></li> 
                                 <li><a href="/tiendaBases/productos/todos-admin">Ver Productos</a></li> 
                         </div>
                         </div>

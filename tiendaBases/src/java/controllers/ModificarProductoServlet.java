@@ -15,40 +15,29 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Producto;
 import model.Proveedor;
 
 @WebServlet(
-        name = "EliminarPro",
-        urlPatterns = {"/productos/EliminarPro"}
+        name = "ModificarPro",
+        urlPatterns = {"/productos/ModificarPro"}
     )
-public class EliminarProductoServlet extends HttpServlet {
+public class ModificarProductoServlet extends HttpServlet {
     
     
     
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
-       GestionProductoDelProveedor gpp=new GestionProductoDelProveedor();
-       GestionProducto gp=new GestionProducto();
-        boolean existe, existe2;
-        
-        existe=gpp.eliminarProducto(req.getParameter("codEli"));
-        if(existe)
-        {
-             System.out.println("Eliminado");
-             
-            existe2=gp.eliminarProducto(req.getParameter("codEli"))
-             
-        }
-           
-        
-        else
-        {
-             System.out.println("No Eliminado");
-        }
-           
-        
+            throws ServletException, IOException
+    {
+      GestionProducto gp=new GestionProducto();
+      Producto pro=new Producto();
+      pro=gp.BuscaProducto(req.getParameter("codElP"));
+      
+      req.setAttribute("namep", pro.getNombre());
+      req.setAttribute("existe", true);
+      this.getServletContext().getRequestDispatcher("/ModificarPro.jsp").forward(req, resp);
         
     }
     
