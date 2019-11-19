@@ -9,7 +9,8 @@
         <th>Foto</th>
         <th>Identificador</th>
         <th>Nombre</th>
-        <th>Precio</th>
+        <th>Precio de Compra</th>     
+        <th>Precio de Venta</th>
         <th>Existencias</th>
         <th>Proveedores</th>
         
@@ -23,9 +24,11 @@
                 <td><%=temp.getNomFoto() %></td>
                 <td><%=temp.getId()%></td>
                 <td><%=temp.getNombre()%></td>
+                <td><%=temp.getPrecioCompra()%></td>
+                <td><%=temp.getPrecioVenta()%></td>
                 <td><%=temp.getExistencias()%></td>
-                <td><%=temp.getPrecio()%></td>
-               
+
+
                 <td>
                     <ul>
                

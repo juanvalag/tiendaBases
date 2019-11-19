@@ -17,22 +17,26 @@
 
 Identification:
 
-<input type="text" name="idp" value=""  <br><br>
+<input type="text" name="idp" value="${producto.id}"  <br><br>
 
 
 Nombre:
-<input type= "text" name="namep" value="${namep}">  <br><br>
+<input type= "text" name="namep" value="${producto.nombre}">  <br><br>
 
 Foto:
 
-<input type="text" name="fotop" value="">  <br><br>
+<input type="text" name="fotop" value="${producto.nomFoto}">  <br><br>
 
-Precio:
+Precio de venta:
 
-<input type="number" name="preciop"   value=0>  <br><br>
+<input type="number" name="preciop"   value=${precioVenta}>  <br><br>
+
+Precio de compra:
+
+<input type="number" name="preciop"   value=${precioCompra}>  <br><br>
 
 Existencias:
-<input type="text" name="exisp" value="">  <br><br>
+<input type="text" name="exisp" value="${producto.existencias}">  <br><br>
 
 
 <input type="submit" name="uno"  value="Modificar"><br><br><br><br>

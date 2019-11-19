@@ -7,7 +7,6 @@ package controllers;
 
 import gestores.GestionProducto;
 import gestores.GestionProductoDelProveedor;
-import gestores.GestionProveedor;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.servlet.ServletException;
@@ -16,8 +15,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Producto;
-import model.ProductoDelProveedor;
-import model.Proveedor;
 
 /**
  *
@@ -55,10 +52,7 @@ public class verTodosProductosServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-       GestionProducto gpro = new GestionProducto();
-        ArrayList<Producto> pross = gpro.getTodos();
-        req.setAttribute("productos", pross);
-        this.getServletContext().getRequestDispatcher("/verTodosProductos.jsp").forward(req, resp);
+        this.doGet(req, resp);
     }
 
     

@@ -50,10 +50,11 @@ public class IniciarSesionServlet extends HttpServlet {
         } else {
             Administrador tempoAdmi = ga.getAdmin(usuario, pass);
             if (tempoAdmi != null) {
-                url = "/crearProducto.jsp";
+                url = "/productos/crearProducto";
                 sesion = request.getSession();
                 sesion.setAttribute("usuario", tempoAdmi);
                 sesion.setAttribute("admin", true);
+                request.setAttribute("iniciosesion", "true");
             } else {
                 url = "/index.jsp";
                 request.setAttribute("mensaje", "El nombre de usuario o contraseña son incorrectos");

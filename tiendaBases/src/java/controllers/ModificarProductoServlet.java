@@ -35,7 +35,7 @@ public class ModificarProductoServlet extends HttpServlet {
       Producto pro=new Producto();
       pro=gp.BuscaProducto(req.getParameter("codElP"));
       
-      req.setAttribute("namep", pro.getNombre());
+      req.setAttribute("producto", pro);
       req.setAttribute("existe", true);
       this.getServletContext().getRequestDispatcher("/ModificarPro.jsp").forward(req, resp);
         

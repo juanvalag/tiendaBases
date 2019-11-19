@@ -78,3 +78,26 @@ div.loginForm{
     height: 500px;
     border-radius: 30px;
 }
+
+/* hacerCompra.jsp */
+
+section.hacerCompra{
+    display: inline;
+    /* margin:  Arriba | Derecha | Abajo | Izquierda */
+    padding: 20px;
+    background: rgba(255,255,255,0.8);
+    width: 60%;
+    height: 500px;
+    border-radius: 30px;
+}
+
+/* verTodosProductos.jsp*/
+section.verTodosProductos{
+    display: inline;
+    /* margin:  Arriba | Derecha | Abajo | Izquierda */
+    padding: 20px;
+    background: rgba(255,255,255,0.8);
+    width: 60%;
+    height: 500px;
+    border-radius: 30px;
+}
