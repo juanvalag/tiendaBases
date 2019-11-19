@@ -5,7 +5,6 @@
  */
 package controllers;
 import gestores.GestionProducto;
-import gestores.GestionProductoDelProveedor;
 import gestores.GestionProveedor;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -39,22 +38,19 @@ public class CrearProductoServlet extends HttpServlet {
                     existe = true;
                     req.setAttribute("mensaje", "ya existe un codigo para ese producto ");
                     this.getServletContext().getRequestDispatcher("/crearProducto.jsp").forward(req, resp);
-
                     break;
                 }
             }
-
+            String mensaje = "";
             if (!existe) {
                 System.out.println(req.getParameter("precio"));
                 Producto pro = new Producto(req.getParameter("idpro"), req.getParameter("namepro"), req.getParameter("foto"),
-                        Integer.parseInt(req.getParameter("precio")), 0);
-                GestionProductoDelProveedor gpdp = new GestionProductoDelProveedor();
-                String[] idProves = req.getParameterValues("proveedores");
+                        Integer.parseInt(req.getParameter("precio")), 0, Integer.parseInt(req.getParameter("precioCompra")));
+
                 boolean guardado = true;
-                String mensaje = "";
-
                 guardado = gp.guardaProducto(pro);
-
+                /*   String[] idProves = req.getParameterValues("proveedores");
+GestionProductoDelProveedor gpdp = new GestionProductoDelProveedor();
                 if (guardado) {
                     for (String temp : idProves) {
                         int precioCompra = Integer.parseInt(req.getParameter(temp));
@@ -64,19 +60,17 @@ public class CrearProductoServlet extends HttpServlet {
                             guardado = false;
                             break;
                         }
-                    }
+                    }*/
                     if (guardado) {
                         url = "/productos/todos-admin";
                     } else {
+                        mensaje = "no se pudo guardar el producto";
                         url = "/crearProducto.jsp";
                     }
-                } else {
-                    mensaje = "no se pudo guardar el producto";
-                    url = "/crearProducto.jsp";
-                }
+            }
                 req.setAttribute("mensaje", mensaje);
                 this.getServletContext().getRequestDispatcher(url).forward(req, resp);
-            }
+
         } else {
             this.doGet(req, resp);
         }

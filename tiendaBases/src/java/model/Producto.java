@@ -11,24 +11,32 @@ import java.io.Serializable;
 public class Producto implements Serializable {
 
     private String id, nombre, nomFoto;
-    private int existencias, precio;
+    private int existencias, precioVenta, precioCompra;
 
     public Producto() {
         this.id = "";
         this.nombre = "";
         this.nomFoto = "";
-        this.precio = 0;
+        this.precioVenta = 0;
         this.existencias = 0;
-        
+        this.precioCompra = 0;
     }
 
-    public Producto(String id, String nombre, String nomFoto,int precio, int exis) {
+    public Producto(String id, String nombre, String nomFoto, int precioVenta, int exis, int precioCompra) {
         this.id = id;
         this.nombre = nombre;
         this.nomFoto = nomFoto;
-        this.precio = precio;
+        this.precioVenta = precioVenta;
         this.existencias = exis;
-        
+        this.precioCompra = precioCompra;
+    }
+
+    public int getPrecioCompra() {
+        return precioCompra;
+    }
+
+    public void setPrecioCompra(int precioCompra) {
+        this.precioCompra = precioCompra;
     }
 
     public String getId() {
@@ -63,18 +71,18 @@ public class Producto implements Serializable {
         this.existencias = existencias;
     }
 
-    public int getPrecio() {
-        return precio;
+    public int getPrecioVenta() {
+        return precioVenta;
     }
 
-    public void setPrecio(int precio) {
-        this.precio = precio;
+    public void setPrecioVenta(int precioVenta) {
+        this.precioVenta = precioVenta;
     }
 
 
     @Override
     public String toString() {
-        return "Producto{" + "id=" + id + ", nombre=" + nombre + ", nomFoto=" + nomFoto + ", existencias=" + existencias + ", precio=" + precio + '}';
+        return "Producto{" + "id=" + id + ", nombre=" + nombre + ", nomFoto=" + nomFoto + ", existencias=" + existencias + ", precioVenta=" + precioVenta + '}';
     }
 
 

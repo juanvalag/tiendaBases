@@ -57,14 +57,13 @@
                         <div class="linkCompraContendor">
                                     <li><p>Compras Productos</p></li> 
                                     <div class="linkCompraDeslis">
-                                        <li><a href="/tiendaBases/compras/operaciones">Comprar</a></li>   
+                                        <li><a href="/tiendaBases/compras/comprar">Comprar</a></li>   
                                         <li><a href="/tiendaBases/proveedores/todos">Ver Compras</a></li>
                                         <li><a href="/tiendaBases/proveedores/deudas">Deudas</a></li>
                                     </div>
                                 </div>
                     </c:if>
                     <c:if test="${!admin && !cliente}">
-
                         <li><a href="/tiendaBases">Inicio</a></li>  
                         <li><a href="/tiendaBases/sesion/iniciar">Iniciar Sesión</a></li>  
 

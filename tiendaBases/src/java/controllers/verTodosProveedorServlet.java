@@ -39,6 +39,7 @@ public class verTodosProveedorServlet extends HttpServlet {
         GestionProveedor gp = new GestionProveedor();
         ArrayList<Proveedor> proves = gp.getTodos();
         req.setAttribute("proveedores", proves);
+        
         this.getServletContext().getRequestDispatcher("/verTodosProveedor.jsp").forward(req, resp);
     }
 

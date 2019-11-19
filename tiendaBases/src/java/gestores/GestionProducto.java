@@ -13,10 +13,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import model.Producto;
 
-/**
- *
- * @author LUZDA
- */
 public class GestionProducto extends AbstractDB  
 {
     public GestionProducto() {
@@ -31,12 +27,13 @@ public class GestionProducto extends AbstractDB
 
            
 
-           PreparedStatement stmt = this.conexionSQL.prepareStatement("call newProducto(?,?,?,?,?)");
+           PreparedStatement stmt = this.conexionSQL.prepareStatement("call newProducto(?,?,?,?,?,?)");
            stmt.setString(1, pro.getId());
            stmt.setString(2, pro.getNombre());
            stmt.setString(3, pro.getNomFoto());
-           stmt.setInt(4,pro.getPrecio());
-           stmt.setInt(5, pro.getExistencias());
+           stmt.setInt(4, pro.getPrecioCompra());
+           stmt.setInt(5, pro.getPrecioVenta());
+           stmt.setInt(6, pro.getExistencias());
           
 
 
@@ -66,7 +63,7 @@ public class GestionProducto extends AbstractDB
         {
              
          ResultSet res;
-            PreparedStatement stmt = this.conexionSQL.prepareStatement("call getProducto(?)");
+            PreparedStatement stmt = this.conexionSQL.prepareStatement("call getProductoprovee(?)");
           stmt.setString(1, id);
            res=stmt.executeQuery();
    
@@ -77,7 +74,8 @@ public class GestionProducto extends AbstractDB
            pro.setId(res.getString("idProducto"));
            pro.setNombre(res.getString("Nombre"));
            pro.setNomFoto(res.getString("NombreFoto"));
-           pro.setPrecio(res.getInt("PrecioVenta"));
+            pro.setPrecioVenta(res.getInt("PrecioVenta"));
+            pro.setPrecioCompra(res.getInt("PrecioCompra"));
            pro.setExistencias(res.getInt("Existencias"));
           
         }
@@ -110,7 +108,8 @@ public class GestionProducto extends AbstractDB
            dema.setId(res.getString("idProducto"));
            dema.setNombre(res.getString("Nombre"));
            dema.setNomFoto(res.getString("NombreFoto"));
-           dema.setPrecio(res.getInt("PrecioVenta"));
+            dema.setPrecioVenta(res.getInt("PrecioVenta"));
+            dema.setPrecioCompra(res.getInt("PrecioCompra"));
            dema.setExistencias(res.getInt("Existencias"));
            productos.add(dema);
            
@@ -143,9 +142,10 @@ public class GestionProducto extends AbstractDB
            stmt.setString(1, pro.getId());
            stmt.setString(2, pro.getNombre());
            stmt.setString(3, pro.getNomFoto());
-           stmt.setInt(4, pro.getPrecio());
-           stmt.setInt(5, pro.getExistencias());       
-           stmt.setString(6, oldId);
+            stmt.setInt(4, pro.getPrecioCompra());
+            stmt.setInt(5, pro.getPrecioVenta());
+            stmt.setInt(6, pro.getExistencias());            
+            stmt.setString(7, oldId);
            
            res=stmt.executeQuery();
            res.close();
@@ -192,5 +192,29 @@ public class GestionProducto extends AbstractDB
         return ok;
                 
    }
+    
+    public ArrayList getProductosProve(String idProve) {
+        ArrayList<Producto> productos = new ArrayList();
+        try {
+            PreparedStatement preparador = this.conexionSQL.prepareStatement("call getAllProductosProve(?)");
+            preparador.setString(1, idProve);
+            ResultSet contenedor = preparador.executeQuery();
+            while (contenedor.next()) {
+                Producto dema = new Producto();
+                dema.setId(contenedor.getString("idProducto"));
+                dema.setNombre(contenedor.getString("Nombre"));
+                dema.setNomFoto(contenedor.getString("NombreFoto"));
+                dema.setPrecioCompra(contenedor.getInt("PrecioCompra"));
+                dema.setPrecioVenta(contenedor.getInt("PrecioVenta"));
+                productos.add(dema);
+            }
+            contenedor.close();
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return productos;
+
+    }
     
 }

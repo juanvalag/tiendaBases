@@ -10,6 +10,7 @@ import conexion.AbstractDB;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import model.Producto;
 
 public class GestionProductoDelProveedor extends AbstractDB {
@@ -36,10 +37,42 @@ public GestionProductoDelProveedor(){
         } catch (SQLException ex) {
             System.out.println(ex);
         }
-
         return ok;
-
     }
+
+    public ArrayList<String> getTodos(String id) 
+    
+    {
+        ArrayList<String> npps=new ArrayList();
+        try
+        {
+            PreparedStatement stmt = this.conexionSQL.prepareStatement("call getProductoprovee(?)");
+            stmt.setString(1, id);
+            ResultSet res= stmt.executeQuery();
+            
+            
+             while(res.next())
+        {
+          
+           String pp=res.getString("Nombre");
+ 
+           npps.add(pp);
+           
+        }
+            res.close();
+            
+        }
+        catch(SQLException ex)
+        {
+            System.out.println(ex);
+        }
+        return npps;
+        
+        
+        
+ }
+
+
 
 
 }
