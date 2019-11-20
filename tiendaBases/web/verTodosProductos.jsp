@@ -4,7 +4,7 @@
 <c:import url="Layouts/navigationBar.jsp"/>
 <section class="verTodosProductos">
 
-    <table>
+    <table class="blueTable">
         <thead>
         <th>Foto</th>
         <th>Identificador</th>

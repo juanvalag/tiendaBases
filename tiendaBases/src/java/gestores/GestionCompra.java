@@ -64,7 +64,7 @@ public class GestionCompra extends AbstractDB
 
     }
 
-    public ArrayList getTodos() {
+    public ArrayList getTodas() {
         ArrayList<Compra> compras = new ArrayList();
         try {
             //String id, String proveedor, String fecha, int valorT, int saldoRes
@@ -86,5 +86,45 @@ public class GestionCompra extends AbstractDB
 
     }
     
-  
+    public ArrayList getDeudas() {
+        ArrayList<Compra> compras = new ArrayList();
+        try {
+            //String id, String proveedor, String fecha, int valorT, int saldoRes
+            ResultSet contenedorEjecucion;
+            PreparedStatement preparador = this.conexionSQL.prepareStatement("call getDeudas()");
+            contenedorEjecucion = preparador.executeQuery();
+            while (contenedorEjecucion.next()) {
+                compras.add(new Compra(contenedorEjecucion.getString("idCompra"), contenedorEjecucion.getString("Proveedor"),
+                        contenedorEjecucion.getString("Fecha"),
+                        contenedorEjecucion.getInt("valorTotal"), contenedorEjecucion.getInt("SaldoRestante")));
+            }
+
+            contenedorEjecucion.close();
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+
+        return compras;
+
+    }
+
+    public boolean actualizaSaldoAdmin(String idc, int abono) {
+        boolean ok = false;
+        try {
+            ResultSet contenedorEjecucion;
+            PreparedStatement preparador = this.conexionSQL.prepareStatement("call actualizaSaldoAdmin(?,?)");
+            preparador.setString(1, idc);
+            preparador.setInt(2, abono);
+            contenedorEjecucion = preparador.executeQuery();
+            contenedorEjecucion.close();
+            ok = true;
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+
+        return ok;
+
+    }
+
 }

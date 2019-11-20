@@ -2,7 +2,7 @@
 <c:import url="Layouts/navigationBar.jsp"/>
 <section class="verProveedores">
 
-    <table>
+    <table class="blueTable">
         <thead>
         <th>Identificador</th>
         <th>Nombre</th>

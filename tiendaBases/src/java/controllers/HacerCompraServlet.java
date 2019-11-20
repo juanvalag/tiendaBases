@@ -21,7 +21,7 @@ import model.Proveedor;
  *
  * @author USUARIO
  */
-@WebServlet(name = "HacerCompraServlet", urlPatterns = {"/compras/comprar"})
+@WebServlet(name = "HacerCompraServlet", urlPatterns = {"/compras/comprare"})
 public class HacerCompraServlet extends HttpServlet {
 
     @Override

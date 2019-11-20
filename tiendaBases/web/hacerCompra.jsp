@@ -23,7 +23,7 @@
         <h1>Factura: </h1>
         <p>Selccione un proveedor para acceder a los productos de este y escoger la cantidad a comprar</p>
     </header>
-    <form action="/tiendaBases/compras/comprar" method="POST">
+    <form action="/tiendaBases/compras/comprare" method="POST">
         <label>Fecha: </label><input type="date" name="fecha" required>
         <label>Seleccione un proveedor: </label>
         <select id="provesSelect" onchange="anadirProveedor()">
@@ -41,7 +41,7 @@
             </c:forEach>
         </select>
         <input type="checkbox" name="credito" value="si"> <label>¿Desea que sea a credito la compra? </label>
-        <table>
+        <table class="blueTable">
             <thead>
             <th>Foto</th>
             <th>Nombre</th>

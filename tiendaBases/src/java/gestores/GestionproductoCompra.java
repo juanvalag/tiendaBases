@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import model.Producto;
 
 public class GestionproductoCompra extends AbstractDB {
 
@@ -66,9 +67,30 @@ public GestionproductoCompra(){
         }
         return npps;
     }
-        
- }
 
+    public ArrayList<Producto> getProductoCompra(String id) {
+        ArrayList<Producto> npps = new ArrayList();
+        try {
+            PreparedStatement stmt = this.conexionSQL.prepareStatement("call getProductoCompra(?)");
+            stmt.setString(1, id);
+            ResultSet res = stmt.executeQuery();
+            while (res.next()) {
+
+                Producto dema = new Producto();
+                dema.setNombre(res.getString("Nombre"));
+                dema.setExistencias(res.getInt("Cantidad"));
+                npps.add(dema);
+
+            }
+            res.close();
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return npps;
+    }
+
+}
 
 
 

@@ -22,7 +22,7 @@ import model.Producto;
  */
 @WebServlet(
         name = "verTodosProductos",
-        urlPatterns = {"/productos/todos-admin"}
+        urlPatterns = {"/productos/todosAdmin"}
 )
 public class verTodosProductosServlet extends HttpServlet {
 
@@ -41,7 +41,7 @@ public class verTodosProductosServlet extends HttpServlet {
             
            proves=gpp.getTodos(pross.get(i).getId());
            String name= pross.get(i).getId();
-           request.setAttribute(name, proves);
+            request.setAttribute(name, proves);
         }
         
        

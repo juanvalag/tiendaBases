@@ -5,12 +5,16 @@
  */
 package controllers;
 
+import gestores.GestionCompra;
+import gestores.GestionproductoCompra;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.*;
 
 /**
  *
@@ -18,16 +22,23 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(
         name = "verTodosProductos",
-        urlPatterns = {"/productos/todos-admin"}
+        urlPatterns = {"/compras/todos"}
 )
-public class verCompras extends HttpServlet {
+public class verTodosCompraServlet extends HttpServlet {
 
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        this.getServletContext().getRequestDispatcher("/verTodosProductos.jsp").forward(request, response);
+        GestionCompra gcomp = new GestionCompra();
+        GestionproductoCompra gpc = new GestionproductoCompra();
+        ArrayList<Compra> compras = gcomp.getTodas();
+        for (Compra comp : compras) {
+            ArrayList<Producto> productos = gpc.getProductoCompra(comp.getId());
+            request.setAttribute(comp.getId(), productos);
+        }
+        request.setAttribute("compras", compras);
+        this.getServletContext().getRequestDispatcher("/verTodosCompra.jsp").forward(request, response);
     }
 
     @Override

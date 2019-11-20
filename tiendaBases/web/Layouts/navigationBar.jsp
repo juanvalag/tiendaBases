@@ -13,7 +13,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link type="text/css" rel="stylesheet" href="/tiendaBases/Recursos/css/navigationBar.css">
-        <link type="text/css" rel="stylesheet" href="/tiendaBases/Recursos/css/${"index"}.css">
+        <link type="text/css" rel="stylesheet" href="/tiendaBases/Recursos/css/index.css">
         <title>${titulo}</title>
     </head>
     <body>
@@ -44,8 +44,8 @@
                             <div class="linkProducDeslis">
                                 <li><a href="/tiendaBases/productos/crearProducto">Crear Producto</a></li> 
                                 <li><a href="/tiendaBases/productos/ModificarPro">Operaciones</a></li> 
-                                <li><a href="/tiendaBases/productos/todos-admin">Ver Productos</a></li> 
-                        </div>
+                                <li><a href="/tiendaBases/productos/todosAdmin">Ver Productos</a></li> 
+                            </div>
                         </div>
                         <div class="linkProveeContendor">
                                 <li><p>Proveedores</p></li> 
@@ -57,9 +57,9 @@
                         <div class="linkCompraContendor">
                                     <li><p>Compras Productos</p></li> 
                                     <div class="linkCompraDeslis">
-                                        <li><a href="/tiendaBases/compras/comprar">Comprar</a></li>   
-                                        <li><a href="/tiendaBases/proveedores/todos">Ver Compras</a></li>
-                                        <li><a href="/tiendaBases/proveedores/deudas">Deudas</a></li>
+                                        <li><a href="/tiendaBases/compras/comprare">Comprar</a></li>   
+                                        <li><a href="/tiendaBases/compras/todos">Ver Compras</a></li>
+                                        <li><a href="/tiendaBases/compras/deudas">Deudas</a></li>
                                     </div>
                                 </div>
                     </c:if>

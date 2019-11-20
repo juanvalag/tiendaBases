@@ -36,7 +36,7 @@ public class CrearProductoServlet extends HttpServlet {
             for (int i = 0; i < productos.size(); i++) {
                 if (req.getParameter("idpro").equals(productos.get(i).getId())) {
                     existe = true;
-                    req.setAttribute("mensaje", "ya existe un codigo para ese producto ");
+                    req.setAttribute("mensaje2", "ya existe un codigo para ese producto ");
                     this.getServletContext().getRequestDispatcher("/crearProducto.jsp").forward(req, resp);
                     break;
                 }
@@ -62,13 +62,13 @@ GestionProductoDelProveedor gpdp = new GestionProductoDelProveedor();
                         }
                     }*/
                     if (guardado) {
-                        url = "/productos/todos-admin";
+                        url = "/productos/todosAdmin";
                     } else {
                         mensaje = "no se pudo guardar el producto";
                         url = "/crearProducto.jsp";
                     }
             }
-                req.setAttribute("mensaje", mensaje);
+            req.setAttribute("mensaje2", mensaje);
                 this.getServletContext().getRequestDispatcher(url).forward(req, resp);
 
         } else {
