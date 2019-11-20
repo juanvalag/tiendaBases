@@ -31,9 +31,10 @@ public class GestionProducto extends AbstractDB
            stmt.setString(1, pro.getId());
            stmt.setString(2, pro.getNombre());
            stmt.setString(3, pro.getNomFoto());
-           stmt.setInt(4, pro.getPrecioCompra());
-           stmt.setInt(5, pro.getPrecioVenta());
-           stmt.setInt(6, pro.getExistencias());
+           stmt.setInt(4, pro.getPrecioVenta());
+           stmt.setInt(5, pro.getExistencias());
+           stmt.setInt(6, pro.getPrecioCompra());
+
           
 
 
@@ -63,7 +64,7 @@ public class GestionProducto extends AbstractDB
         {
              
          ResultSet res;
-            PreparedStatement stmt = this.conexionSQL.prepareStatement("call getProductoSolo(?)");
+            PreparedStatement stmt = this.conexionSQL.prepareStatement("call getProducto(?)");
           stmt.setString(1, id);
            res=stmt.executeQuery();
    
@@ -218,5 +219,26 @@ public class GestionProducto extends AbstractDB
         return productos;
 
     }
-    
+
+    public boolean actualizaExistencias(String id, int newExistencia) {
+        boolean ok = false;
+        try {
+            ResultSet res;
+
+            PreparedStatement stmt = this.conexionSQL.prepareStatement("call modifyExistencias(?,?)");
+
+            stmt.setString(1, id);
+            stmt.setInt(2, newExistencia);
+
+            res = stmt.executeQuery();
+            res.close();
+            ok = true;
+
+        } catch (SQLException ex) {
+
+            System.out.println(ex);
+        }
+
+        return ok;
+    }
 }

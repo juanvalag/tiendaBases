@@ -1,18 +1,19 @@
 var productos = JSON.parse(document.getElementById("productos").innerHTML);
 var proveedores = document.getElementsByClassName("proves");
-
+var valorTotal = 0;
 const anadirProductos = () => {
 
     let fila = document.createElement("tr");
     let productsSelect = document.getElementById("products");
     let seleccion = productsSelect.options[productsSelect.selectedIndex];
+    console.log(productos);
     for (let producto of productos) {
-        alert("class: " + seleccion.className);
         if (seleccion.className === producto.id)
         {
-
             let columnaActual = "foto";
+            let cantidad = 0;
             for (let i = 0; i < 5; i++) {
+
                 let td = document.createElement("td");
                 if (columnaActual === "foto") {
                     td.innerHTML = producto.foto;
@@ -24,51 +25,43 @@ const anadirProductos = () => {
                     td.innerHTML = producto.precioCompra;
                     columnaActual = "cantidad";
                 } else if (columnaActual === "cantidad") {
-                    let cantidad = document.createElement("input");
-                    cantidad.type = "number";
-                    cantidad.min = 1;
-                    cantidad.class = producto.id;
-                    cantidad.value = 1;
-                    cantidad.oninput = (e) => calcularSub(e);
-                    cantidad.required = true;
-                    td.appendChild(cantidad);
+                    cantidad = document.getElementById("cantidad").value;
+                    td.innerHTML = cantidad;
                     columnaActual = "subTotal";
                 }
                 else {
-                    td.id = producto.id;
-                    td.innerHTML = producto.precioCompra;
+                    let subtotal = producto.precioCompra * cantidad;
+                    td.innerHTML = subtotal;
+                    anadirTotal(subtotal);
                 }
-
                 fila.appendChild(td);
-
             }
             productsSelect.removeChild(seleccion);
             let seccionDatos = document.getElementById("datos");
             let hiddenProducto = document.createElement("input");
             let hiddenCantidad = document.createElement("input");
-            hiddenProducto.name = "productos";
             hiddenProducto.type = "hidden";
+            hiddenProducto.name = "productos";
             hiddenProducto.value = producto.id;
-            hiddenCantidad.name = producto.id;
             hiddenCantidad.type = "hidden";
-            hiddenCantidad.value = 1;
+            hiddenCantidad.name = producto.id;
+            hiddenCantidad.value = cantidad;
             seccionDatos.appendChild(hiddenProducto);
             seccionDatos.appendChild(hiddenCantidad);
+            document.getElementById("datos").appendChild(hiddenProducto);
+            document.getElementById("datos").appendChild(hiddenCantidad);
             document.getElementById("tbody").appendChild(fila);
             break;
         }
     }
 };
 
-const calcularSub = (e) => {
-    let canti = e.target.value;
-    let producto = productos.filter(prod => prod.id === e.target.class)[0];
-    alert(producto);
-    if (canti > 0) {
-        document.getElementById(producto.id).innerHTML = canti * producto.precioCompra;
-    }
-};
 
+const anadirTotal = (newValor) => {
+    valorTotal += newValor;
+    document.getElementById("total").innerHTML = valorTotal;
+    document.getElementById("valorTotal").value = valorTotal;
+};
 
 
 const anadirProveedor = () => {

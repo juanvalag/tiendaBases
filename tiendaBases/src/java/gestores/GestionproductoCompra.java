@@ -12,21 +12,22 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class GestionProductoDelProveedor extends AbstractDB {
+public class GestionproductoCompra extends AbstractDB {
 
 
-public GestionProductoDelProveedor(){
+public GestionproductoCompra(){
     super();
 }
 
-    public boolean guardaProduProve(String pro, String idProv) {
+    public boolean guardaProduCompra(String idComp, String idPro, int canti) {
         boolean ok = false;
         try {
             ResultSet res;
 
-            PreparedStatement stmt = this.conexionSQL.prepareStatement("call newProduProve(?,?)");
-            stmt.setString(1, idProv);
-            stmt.setString(2, pro);
+            PreparedStatement stmt = this.conexionSQL.prepareStatement("call newProduCompra(?,?,?)");
+            stmt.setString(1, idComp);
+            stmt.setString(2, idPro);
+            stmt.setInt(3, canti);
             res = stmt.executeQuery();
             res.close();
             ok = true;
@@ -66,30 +67,6 @@ public GestionProductoDelProveedor(){
         return npps;
     }
         
-    
-        public boolean eliminarProducto(String cod)
-        {
-        boolean ok=false;
-        
-        try
-        {
-            
-             PreparedStatement stmt=this.conexionSQL.prepareStatement("call DeleteProducto(?)");
-             
-             stmt.setString(1, cod);
-             stmt.execute();
-             ok=true;       
-            
-        }
-        catch(SQLException ex)
-                {
-                    System.out.println(ex);
-                   
-                }
-        
-        
-        return ok;
-        }
  }
 
 

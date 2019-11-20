@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package conexion;
 
 
@@ -25,7 +20,7 @@ public class ConnectionDB
 
         this.url = "jdbc:mysql://localhost:3306/tiendaBases";
         this.username = "root";
-        this.password = "a123456789";
+        this.password = "MySQLRoot";
   
 
         try 
