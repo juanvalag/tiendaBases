@@ -5,9 +5,7 @@
  */
 package controllers;
 
-import gestores.GestionProducto;
-import gestores.GestionProductoDelProveedor;
-import gestores.GestionProveedor;
+import gestores.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.servlet.ServletException;
@@ -15,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Compra;
 import model.Producto;
 import model.Proveedor;
 
@@ -46,7 +45,7 @@ public class HacerCompraServlet extends HttpServlet {
             mensaje = "No se ha creado ningún proveedor";
             url = "/proveedores/crearProveedor";
         }
-        request.setAttribute("mensaje", mensaje);
+        request.setAttribute("mensaje2", mensaje);
         this.getServletContext().getRequestDispatcher(url).forward(request, response);
     }
 
@@ -56,12 +55,50 @@ public class HacerCompraServlet extends HttpServlet {
         String[] productos = request.getParameterValues("productos");
         String total = request.getParameter("valorTotal");
         String provee = request.getParameter("proveedor");
+        String credito = request.getParameter("credito");
+        String fecha = request.getParameter("fecha");
+         int max = 1000;
+        int min = 1;
+        int rango = max - min;
+        String id = "compra--" + (int) (Math.random() * rango) + min;
         GestionProductoDelProveedor gpdp = new GestionProductoDelProveedor();
-        for (String temp : productos) {
-            String cantidad = request.getParameter(temp);
-            gpdp.guardaProduProve(temp, provee);
-
+        GestionCompra gc = new GestionCompra();
+        GestionProducto gp = new GestionProducto();
+        GestionproductoCompra gpc = new GestionproductoCompra();
+        Compra compra;
+        if (credito != null) {
+            compra = new Compra(id, provee, fecha, Integer.parseInt(total), Integer.parseInt(total));
+        } else {
+            compra = new Compra(id, provee, fecha, Integer.parseInt(total), 0);
         }
+        boolean guardado = gc.guardaCompra(compra);
+        String url = "/compras/todos";
+        String mensage = "";
+        boolean guardaProduCompra = true;
+        if (guardado) {
+        for (String temp : productos) {
+            int canti = Integer.parseInt(request.getParameter(temp));
+            gpdp.guardaProduProve(temp, provee);
+            guardaProduCompra = gpc.guardaProduCompra(id, temp, canti);
+            boolean actualizado = gp.actualizaExistencias(temp, canti);
+            if (!guardaProduCompra || !actualizado) {
+                mensage = "Se creó la compra pero no se guardo los productos o no se actualizó las exitencias";
+                request.setAttribute("mensaje", mensage);
+                doGet(request, response);
+                break;
+            }
+        }
+        } else {
+            mensage = "No se puco crear";
+            request.setAttribute("mensaje", mensage);
+            doGet(request, response);
+        }
+
+        if (guardaProduCompra) {
+
+            this.getServletContext().getRequestDispatcher(url).forward(request, response);
+        }
+
     }
 
     @Override

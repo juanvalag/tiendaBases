@@ -24,6 +24,7 @@
         <p>Selccione un proveedor para acceder a los productos de este y escoger la cantidad a comprar</p>
     </header>
     <form action="/tiendaBases/compras/comprar" method="POST">
+        <label>Fecha: </label><input type="date" name="fecha" required>
         <label>Seleccione un proveedor: </label>
         <select id="provesSelect" onchange="anadirProveedor()">
             <option></option>
@@ -31,6 +32,7 @@
                 <option class="proves" id="${tempProve.id}">${tempProve.nombre}</option> 
             </c:forEach>
         </select>
+        <label>Cantidad: </label><input id="cantidad" type="number" value="1" min="1" required>
         <label>Seleccione uno o varios productos: </label>
         <select id="products" onchange="anadirProductos()">
             <option></option>
@@ -38,8 +40,7 @@
                 <option class="${tempProduc.id}">${tempProduc.nombre}</option> 
             </c:forEach>
         </select>
-        <label>Cantidad: </label><input id="cantidad" type="number" value="1" min="1">
-        <input type="checkbox" name="credito"> <label>¿Desea que sea a credito la compra? </label>
+        <input type="checkbox" name="credito" value="si"> <label>¿Desea que sea a credito la compra? </label>
         <table>
             <thead>
             <th>Foto</th>
@@ -52,12 +53,15 @@
 
             </tbody>
         </table>
+        <div>
+            ${mensaje}
+        </div>
+        <div id="datos">
+            <input type="hidden" id="valorTotal" name="valorTotal" value="0">
+        </div>
         <input type="submit" value="Comprar">
     </form>
     <div id="productos" style="display: none;"><%out.print(objetojs);%></div>
-    <section id="datos">
-        <input type="hidden" id="valorTotal" value="">
-    </section>
     <div>
         <header>
             <h1>Totales</h1>

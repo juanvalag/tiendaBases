@@ -5,20 +5,30 @@ import java.io.Serializable;
 public class Compra implements Serializable {
 
     private String id, proveedor, fecha;
-    private float valorT;
+    private int valorT, saldoRes;
 
     public Compra() {
         this.id = "";
         this.proveedor = "";
         this.fecha = "";
         this.valorT = 0;
+        this.saldoRes = 0;
     }
 
-    public Compra(String id, String proveedor, String fecha, Float valorT) {
+    public Compra(String id, String proveedor, String fecha, int valorT, int saldoRes) {
         this.id = id;
         this.proveedor = proveedor;
         this.fecha = fecha;
         this.valorT = valorT;
+        this.saldoRes = saldoRes;
+    }
+
+    public int getSaldoRes() {
+        return saldoRes;
+    }
+
+    public void setSaldoRes(int saldoRes) {
+        this.saldoRes = saldoRes;
     }
 
     public String getId() {
@@ -45,11 +55,11 @@ public class Compra implements Serializable {
         this.fecha = fecha;
     }
 
-    public float getValorT() {
+    public int getValorT() {
         return valorT;
     }
 
-    public void setValorT(float valorT) {
+    public void setValorT(int valorT) {
         this.valorT = valorT;
     }
 

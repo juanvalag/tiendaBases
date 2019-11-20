@@ -6,10 +6,10 @@ const anadirProductos = () => {
     let fila = document.createElement("tr");
     let productsSelect = document.getElementById("products");
     let seleccion = productsSelect.options[productsSelect.selectedIndex];
+    console.log(productos);
     for (let producto of productos) {
         if (seleccion.className === producto.id)
         {
-
             let columnaActual = "foto";
             let cantidad = 0;
             for (let i = 0; i < 5; i++) {
@@ -40,14 +40,16 @@ const anadirProductos = () => {
             let seccionDatos = document.getElementById("datos");
             let hiddenProducto = document.createElement("input");
             let hiddenCantidad = document.createElement("input");
-            hiddenProducto.name = "productos";
             hiddenProducto.type = "hidden";
+            hiddenProducto.name = "productos";
             hiddenProducto.value = producto.id;
-            hiddenCantidad.name = producto.id;
             hiddenCantidad.type = "hidden";
+            hiddenCantidad.name = producto.id;
             hiddenCantidad.value = cantidad;
             seccionDatos.appendChild(hiddenProducto);
             seccionDatos.appendChild(hiddenCantidad);
+            document.getElementById("datos").appendChild(hiddenProducto);
+            document.getElementById("datos").appendChild(hiddenCantidad);
             document.getElementById("tbody").appendChild(fila);
             break;
         }

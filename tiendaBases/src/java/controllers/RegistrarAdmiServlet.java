@@ -22,10 +22,13 @@ public class RegistrarAdmiServlet extends HttpServlet {
         Administrador donPaco = new Administrador(req.getParameter("docu"), req.getParameter("name"), req.getParameter("usename"),
                 req.getParameter("password"), req.getParameter("foto"), "Administrador");
         GestionAdministrador gest = new GestionAdministrador();
+        String url = "";
         if (gest.guardaAdmi(donPaco)) {
-            this.getServletContext().getRequestDispatcher("/sesion/iniciar").forward(req, resp);
+            url = "/sesion/iniciar";
+        }else{
+            url = "/index.jsp";
         }
-
+        this.getServletContext().getRequestDispatcher(url).forward(req, resp);
 
     }
 

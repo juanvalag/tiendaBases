@@ -13,7 +13,7 @@
             </form>
     </section>
     <section>
-        <p>${mensaje}</p>
+        <p>${mensaje2}</p>
     </section>
 </section>
 </div>

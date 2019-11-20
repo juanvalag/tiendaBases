@@ -33,7 +33,7 @@
             </form>
             <section>
                 <p>
-                    ${mensaje}
+                    ${mensaje2}
                 </p>
             </section>
         </section>

@@ -19,15 +19,14 @@
                 </form>
             </section>
             <section id="admin">
-                <form action="RegistrarAdmin" method = "post">  
+                <form action="/tiendaBases/RegistrarAdmin" method = "post">  
                     <label>Nombre: </label> <input type="text" name="name" value="" required>  <br><br>
                     <label>Documento: </label> <input type="text" name="docu" value="" required>  <br><br>
                     <label>  Foto:</label> <input type="file" name="foto" value="">  <br><br><br>
                     <label>Nombre de Usuario:</label><input type="text" name="usename" value="" required>  <br><br>
                     <label> Contraseña:</label> <input type="password" name="password" value="" required>  <br><br>
                     <input type="submit" name="Crear" value="Crear"><br>
-                   
-                      
+
        
                 </form>
             </section>
