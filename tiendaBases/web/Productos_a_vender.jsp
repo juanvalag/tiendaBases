@@ -4,16 +4,16 @@
 <c:import url="Layouts/navigationBar.jsp"/>
 
 <section class="verTodosProductos">
- <form action="Seleccion" method = "post"> 
+ <form action="/tiendaBases/productos/todos"  method = "POST"> 
     <table>
         <thead>
         <th>Foto</th>
-        <th>Identificador</th>
-        <th>Nombre</th>
-        <th>Precio de Compra</th>     
+        <th>Nombre</th>       
         <th>Precio de Venta</th>
-        <th>Existencias</th>
-        <th>Proveedores</th>
+        <th>Añadir </th>
+        
+     
+       
         
         
     </thead>
@@ -23,10 +23,9 @@
         %>
             <tr>
                 <td><%=temp.getNomFoto() %></td>
-                <td><%=temp.getId()%></td>
                 <td><%=temp.getNombre()%></td>
                 <td><%=temp.getPrecioVenta()%></td>
-                <td><%=temp.getExistencias()%></td>
+               
 
 
                 <td>
