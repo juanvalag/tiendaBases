@@ -31,7 +31,8 @@ public class Productos_a_venderServlet extends HttpServlet {
           ArrayList<Producto>pros=new ArrayList();
           
           System.out.println(idPros.length);
-        
+          String url="CompraDeCLi.jsp";
+       
 
     }
            @Override

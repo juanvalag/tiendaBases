@@ -57,7 +57,7 @@ public class HacerCompraServlet extends HttpServlet {
         String provee = request.getParameter("proveedor");
         String credito = request.getParameter("credito");
         String fecha = request.getParameter("fecha");
-         int max = 1000;
+        int max = 1000;
         int min = 1;
         int rango = max - min;
         String id = "compra--" + (int) (Math.random() * rango) + min;
