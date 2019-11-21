@@ -49,18 +49,6 @@ public class CrearProductoServlet extends HttpServlet {
 
                 boolean guardado = true;
                 guardado = gp.guardaProducto(pro);
-                /*   String[] idProves = req.getParameterValues("proveedores");
-GestionProductoDelProveedor gpdp = new GestionProductoDelProveedor();
-                if (guardado) {
-                    for (String temp : idProves) {
-                        int precioCompra = Integer.parseInt(req.getParameter(temp));
-
-                        if (!gpdp.guardaProduProve(pro, temp, precioCompra)) {
-                            mensaje = "no se pudo guardar el proveedor: " + temp;
-                            guardado = false;
-                            break;
-                        }
-                    }*/
                     if (guardado) {
                         url = "/productos/todosAdmin";
                     } else {

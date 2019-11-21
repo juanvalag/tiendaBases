@@ -23,14 +23,14 @@
                 <ul>
                     <c:if test="${cliente}">
                         <div class="linkProducContendor">
-                            <li><a href="/tiendaBases/productos">Productos</a></li> 
+                            <li><p>Productos</p></li> 
                             <div class="linkProducDeslis">    
                                 <li><a href="/tiendaBases/productos/ventas">Carrito de Compra</a></li> 
                                 <li><a href="/tiendaBases/productos/todos">Ver Productos</a></li> 
                             </div>
                         </div> 
                         <div class="linkVentaContendor">
-                            <li><a href="/productos">Información Compras</a></li> 
+                            <li><p>Información Compras</p></li> 
 
                             <div class="linkVentaDeslis">    
                                 <li><a href="/tiendaBases/usuario/ventas">Productos Comprados</a></li> 
@@ -38,7 +38,7 @@
                             </div>
                         </div> 
                         <div class="linkSesionDeslis">
-                            <li><a href="/session/cerrar">Cerrar Sesion</a></li> 
+                            <li><a href="/tiendaBases/sesion/cerrar">Cerrar Sesion</a></li> 
                         </div>
                     </c:if>
                     <c:if test="${admin}">

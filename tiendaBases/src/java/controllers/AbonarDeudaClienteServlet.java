@@ -13,47 +13,51 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Compra;
+import model.Usuario;
+import model.Venta;
 
 /**
  *
  * @author USUARIO
  */
-@WebServlet(name = "AbonarDeudaServlet", urlPatterns = {"/compras/deudas"})
-public class AbonarDeudaServlet extends HttpServlet {
+@WebServlet(name = "AbonarDeudaCliente", urlPatterns = {"/usuario/deudas"})
+public class AbonarDeudaClienteServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        GestionCompra gc = new GestionCompra();
-        ArrayList<Compra> deudas = gc.getDeudas();
+        GestionVentas gv = new GestionVentas();
+        Usuario user = (Usuario) request.getSession().getAttribute("usuario");
+        ArrayList<Venta> deudas = gv.getDeudas(user.getId());
         String url = "", mensaje = "";
         if (deudas.size() > 0) {
             request.setAttribute("deudas", deudas);
-            url = "/verTodosDeudas.jsp";
+            url = "/verTodosDeudasCliente.jsp";
             } else {
             mensaje = "No hay ninguna deuda pendiente";
-            url = "/productos/crearProducto";
-            request.setAttribute("iniciosesion", "si");
+            url = "/productos/todos";
+            request.setAttribute("toInicio", "si");
         }
+        request.setAttribute("mensaje2", mensaje);
         request.setAttribute("mensaje", mensaje);
-
+        request.setAttribute("iniciosesion", "si");
         this.getServletContext().getRequestDispatcher(url).forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if (request.getAttribute("mostrar") == null) {
+        Usuario user = (Usuario) request.getSession().getAttribute("usuario");
+        String idUsuario = user.getId();
         String[] abonos = request.getParameterValues("abonos");
         String[] ids = request.getParameterValues("ids");
-        GestionCompra gc = new GestionCompra();
-        String url = "/compras/deudas", mensaje = "", muestra = "true";
+        GestionVentas gv = new GestionVentas();
+        String mensaje = "";
         boolean abonosExitosos = true;
         for (String abono : abonos) {
             for (String id : ids) {
                 if (Integer.parseInt(abono) > 0) {
-                    abonosExitosos = gc.actualizaSaldoAdmin(id, Integer.parseInt(abono));
+                    abonosExitosos = gv.actualizaSaldoCliente(idUsuario, id, Integer.parseInt(abono));
                     if (!abonosExitosos) {
                         mensaje = "No se pudo actualizar algunos registros, Intente de nuevo";
                         break;
@@ -64,12 +68,9 @@ public class AbonarDeudaServlet extends HttpServlet {
         if (abonosExitosos) {
             mensaje = "abonos realizados exitosamente!!!";
         }
-        request.setAttribute("mensaje2", mensaje);
-        request.setAttribute("mostrar", muestra);
+        request.setAttribute("mensaje", mensaje);
             doGet(request, response);
-        } else {
-            doGet(request, response);
-        }
+
     }
 
     @Override

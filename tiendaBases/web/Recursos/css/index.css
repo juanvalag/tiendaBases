@@ -2,18 +2,19 @@ body, html{
     width: 100%;
     margin: 0;
     padding: 0;
-    height: 700px;
+    min-height: 700px;
 }
 
 
 /* index.jsp */
 .formCreaUser{
+    margin-top: 80px; 
     display: inline;
     /* margin:  Arriba | Derecha | Abajo | Izquierda */
     padding: 20px;
     background: rgba(255,255,255,0.8);
     width: 60%;
-    height: 500px;
+    min-height: 500px;
     border-radius: 30px;
 }
 
@@ -23,12 +24,12 @@ nav.navCreaUser {
     display: flex;
     align-items: center;
     justify-content: center;
-}
+    margin-top: 80px; }
 
 nav.navCreaUser label{
     color: darkcyan;
     margin: 20px;
-}
+    margin-top: 80px; }
 
 /* iniciarSesion.jsp*/
 
@@ -39,9 +40,9 @@ div.loginForm{
     padding: 20px;
     background: rgba(255,255,255,0.8);
     width: 60%;
-    height: 500px;
+    min-height: 500px;
     border-radius: 30px;
-}
+    margin-top: 80px; }
 
 /* crearProducto.jsp*/
 
@@ -51,9 +52,9 @@ div.loginForm{
     padding: 20px;
     background: rgba(255,255,255,0.8);
     width: 60%;
-    height: 500px;
+    min-height: 500px;
     border-radius: 30px;
-}
+    margin-top: 80px; }
 
 /* creaProveedor.jsp */
 
@@ -63,9 +64,9 @@ div.loginForm{
     padding: 20px;
     background: rgba(255,255,255,0.8);
     width: 60%;
-    height: 500px;
+    min-height: 500px;
     border-radius: 30px;
-}
+    margin-top: 80px; }
 
 /* verTodosProveedores.jsp */
 
@@ -75,9 +76,9 @@ div.loginForm{
     padding: 20px;
     background: rgba(255,255,255,0.8);
     width: 60%;
-    height: 500px;
+    min-height: 500px;
     border-radius: 30px;
-}
+    margin-top: 80px; }
 
 /* hacerCompra.jsp */
 
@@ -87,9 +88,9 @@ section.hacerCompra{
     padding: 20px;
     background: rgba(255,255,255,0.8);
     width: 60%;
-    height: 500px;
+    min-height: 500px;
     border-radius: 30px;
-}
+    margin-top: 80px; }
 
 /* verTodosProductos.jsp*/
 section.verTodosProductos{
@@ -98,9 +99,9 @@ section.verTodosProductos{
     padding: 20px;
     background: rgba(255,255,255,0.8);
     width: 60%;
-    height: 500px;
+    min-height: 500px;
     border-radius: 30px;
-}
+    margin-top: 80px; }
 
 /* tabla*/
 
@@ -138,3 +139,28 @@ table.blueTable thead th:first-child {
     border-left: none;
 }
 
+/* ModificarPro.jsp */
+
+.ModificarPro{
+    display: inline;
+    /* margin:  Arriba | Derecha | Abajo | Izquierda */
+    padding: 20px;
+    background: rgba(255,255,255,0.8);
+    width: 60%;
+    min-height: 500px;
+    border-radius: 30px;
+    margin-top: 80px; }
+
+
+/* CompraDeCLi.jsp */
+
+.Carro{
+    display: inline;
+    /* margin:  Arriba | Derecha | Abajo | Izquierda */
+    padding: 20px;
+    background: rgba(255,255,255,0.8);
+    width: 60%;
+    min-height: 500px;
+    border-radius: 30px;
+
+    margin-top: 80px; }

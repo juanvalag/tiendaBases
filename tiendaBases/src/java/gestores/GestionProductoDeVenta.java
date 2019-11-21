@@ -11,22 +11,25 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import model.Producto;
 
-public class GestionProductoDelProveedor extends AbstractDB {
+public class GestionProductoDeVenta extends AbstractDB {
 
 
-public GestionProductoDelProveedor(){
+public GestionProductoDeVenta(){
     super();
 }
 
-    public boolean guardaProduProve(String pro, String idProv) {
+    public boolean guardaProduVentPro(String Vent, String Pro, int Cant) {
         boolean ok = false;
         try {
             ResultSet res;
 
-            PreparedStatement stmt = this.conexionSQL.prepareStatement("call newProduProve(?,?)");
-            stmt.setString(1, idProv);
-            stmt.setString(2, pro);
+            PreparedStatement stmt = this.conexionSQL.prepareStatement("call newProduVenta(?,?,?)");
+            stmt.setString(1, Vent);
+            stmt.setString(2, Pro);
+            stmt.setInt(3, Cant);
+            
             res = stmt.executeQuery();
             res.close();
             ok = true;
@@ -37,23 +40,23 @@ public GestionProductoDelProveedor(){
         return ok;
     }
 
-    public ArrayList<String> getTodos(String id) 
-    
+    public ArrayList<Producto> getTodos(String id)    
     {
-        ArrayList<String> npps=new ArrayList();
+        ArrayList<Producto> npps = new ArrayList();
         try
         {
-            PreparedStatement stmt = this.conexionSQL.prepareStatement("call getProveProduc(?)");
+            PreparedStatement stmt = this.conexionSQL.prepareStatement("call getProducVenta(?)");
             stmt.setString(1, id);
             ResultSet res= stmt.executeQuery();
             
             
              while(res.next())
         {
-          
-           String pp=res.getString("Nombre");
+            Producto temp = new Producto();
+            temp.setNombre(res.getString("Nombre"));
+            temp.setExistencias(res.getInt("Cantidad"));
  
-           npps.add(pp);
+            npps.add(temp);
            
         }
             res.close();
@@ -65,13 +68,4 @@ public GestionProductoDelProveedor(){
         }
         return npps;
     }
-
- }
-
-
-
-
-
-
-
-
+}       

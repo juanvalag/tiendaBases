@@ -127,7 +127,32 @@ public class GestionProducto extends AbstractDB
         
         
     }
-     
+
+    public ArrayList<Producto> getTodosConExis() {
+        ArrayList<Producto> productos = new ArrayList();
+        try {
+            Statement stmt = this.conexionSQL.createStatement();
+            ResultSet res = stmt.executeQuery("call getAllProductosConExis()");
+            while (res.next()) {
+                Producto dema = new Producto();
+                dema.setId(res.getString("idProducto"));
+                dema.setNombre(res.getString("Nombre"));
+                dema.setNomFoto(res.getString("NombreFoto"));
+                dema.setPrecioVenta(res.getInt("PrecioVenta"));
+                dema.setPrecioCompra(res.getInt("PrecioCompra"));
+                dema.setExistencias(res.getInt("Existencias"));
+                productos.add(dema);
+
+            }
+            res.close();
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return productos;
+
+    }
+
      
      
      public boolean ModificaProducto(Producto pro,String oldId) 
@@ -166,23 +191,20 @@ public class GestionProducto extends AbstractDB
     }
      
     
-    public boolean eliminarProducto(String id) 
-   {
-                
-                
-                
-                    boolean ok=false;
+ public boolean eliminarProducto(String id)
+    {
+        
+        boolean ok=false;
         
         try
         {
-             ResultSet  algo;
-            PreparedStatement stmt = this.conexionSQL.prepareStatement("call deleteProducto(?)");
-             
+            
+             PreparedStatement stmt=this.conexionSQL.prepareStatement("call deleteProducto(?)");
              stmt.setString(1, id);
-         algo  =  stmt.executeQuery();
-             algo.close();
-             ok=true;       
-              System.out.println("este");
+             stmt.execute();
+            
+             ok=true;  
+               System.out.println("este");
         }
         catch(SQLException ex)
                 {
@@ -192,31 +214,6 @@ public class GestionProducto extends AbstractDB
         
         
         return ok;
-                
-   }
-    
-    public ArrayList getProductosProve(String idProve) {
-        ArrayList<Producto> productos = new ArrayList();
-        try {
-            PreparedStatement preparador = this.conexionSQL.prepareStatement("call getAllProductosProve(?)");
-            preparador.setString(1, idProve);
-            ResultSet contenedor = preparador.executeQuery();
-            while (contenedor.next()) {
-                Producto dema = new Producto();
-                dema.setId(contenedor.getString("idProducto"));
-                dema.setNombre(contenedor.getString("Nombre"));
-                dema.setNomFoto(contenedor.getString("NombreFoto"));
-                dema.setPrecioCompra(contenedor.getInt("PrecioCompra"));
-                dema.setPrecioVenta(contenedor.getInt("PrecioVenta"));
-                productos.add(dema);
-            }
-            contenedor.close();
-
-        } catch (SQLException ex) {
-            System.out.println(ex);
-        }
-        return productos;
-
     }
 
     public boolean actualizaExistencias(String id, int newExistencia) {

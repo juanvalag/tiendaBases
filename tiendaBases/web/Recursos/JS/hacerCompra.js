@@ -16,7 +16,9 @@ const anadirProductos = () => {
 
                 let td = document.createElement("td");
                 if (columnaActual === "foto") {
-                    td.innerHTML = producto.foto;
+                    let foto = document.createElement("img");
+                    foto.src = "/tiendaBases/Recursos/img/food_and_drinks/" + producto.foto;
+                    td.appendChild(foto);
                     columnaActual = "nombre";
                 } else if (columnaActual === "nombre") {
                     td.innerHTML = producto.nombre;

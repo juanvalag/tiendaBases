@@ -11,8 +11,8 @@
                     <label>Documento: </label> <input type="text" name="docu" value="" required>  <br><br>
                     <label> Cliente: </label> <input type="radio" name="tipo" value="Cliente" checked="true">  <br><br>
                     <label>  Empresa: </label> <input type="radio" name="tipo" value="Empresa"> <br><br>                    <label>  Foto:</label> <input type="file" name="foto" value="" required>  <br><br>
-                    <label>Nombre de Usuario:</label><input type="text" name="Usu" value="" required>  <br><br>
-                    <label> Contraseña: </label> <input type="password" name="passw" value="" required>  <br><br>
+                    <label>Nombre de Usuario:</label><input type="text" name="usename" value="" required>  <br><br>
+                    <label> Contraseña: </label> <input type="password" name="password" value="" required>  <br><br>
                     <label>Telefono:</label><input type="text" name="tel" value="" required>  <br><br>
                     <label> Direccion: </label> <input type="text" name="dir" value="" required>  <br><br>
                     <input type="submit" name="Crear"  value="Crear"><br>

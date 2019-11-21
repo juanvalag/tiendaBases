@@ -1,6 +1,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:import url="Layouts/navigationBar.jsp"/>
 <section class="formCreaProduct">
+    <div>${mensaje}</div>
     <header>
                 <h1>Crear un producto:</h1>
     </header>  

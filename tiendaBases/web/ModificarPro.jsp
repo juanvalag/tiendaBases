@@ -20,7 +20,7 @@ Foto:
 Precio de venta:
 <input type="number" name="preciop"   value=${producto.precioVenta }>  <br><br>
 Precio de compra:
-<input type="number" name="preciop"   value=${producto.precioCompra }>  <br><br>
+<input type="number" name="precioc"   value=${producto.precioCompra }>  <br><br>
 Existencias:
 <input type="number" name="exisp" value="${producto.existencias}">  <br><br>
   
@@ -30,31 +30,13 @@ Existencias:
 
 
     
-   
-   
-    
 
-
-
-    
-    
-  <c:if test="${existe}">
-  <form action="EliminarPro" method = "post">  
-   codigo de el producto que busco <br><br><br>
-     <input type="text" name="idp2" value="${producto.id}" disabled>  <br><br>
-                    <input type="submit" name="Eli"  value="Eliminar"><br><br>
- </form>
-  </c:if>
-    
-    
 </section>
     
     
     
 </body>
- <script src="/tiendaBases/Recursos/JS/Borra.js">
-        </script>
-    
+
     
     
     

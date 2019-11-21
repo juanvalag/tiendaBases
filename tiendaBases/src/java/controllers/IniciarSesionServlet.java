@@ -43,7 +43,8 @@ public class IniciarSesionServlet extends HttpServlet {
         String url = "";
         HttpSession sesion;
         if (tempoCli != null) {
-            url = "/index.jsp";
+            url = "/productos/todos";
+            request.setAttribute("toInicio", "si");
             sesion = request.getSession();
             sesion.setAttribute("usuario", tempoCli);
             sesion.setAttribute("cliente", true);

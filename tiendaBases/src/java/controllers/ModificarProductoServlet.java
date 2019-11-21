@@ -6,17 +6,13 @@
 package controllers;
 
 import gestores.GestionProducto;
-import gestores.GestionProductoDelProveedor;
-import gestores.GestionProveedor;
 import java.io.IOException;
-import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Producto;
-import model.Proveedor;
 
 @WebServlet(
         name = "ModificarPro",
@@ -46,13 +42,14 @@ public class ModificarProductoServlet extends HttpServlet {
 {      GestionProducto gp=new GestionProducto();
         boolean listo;
     Producto Pro = new Producto(req.getParameter("idp"),req.getParameter("namep"),req.getParameter("fotop"),
-                                Integer.parseInt(req.getParameter("preciop")),Integer.parseInt(req.getParameter("exisp")) ,Integer.parseInt(req.getParameter("preciop")));
+            Integer.parseInt(req.getParameter("preciop")), Integer.parseInt(req.getParameter("exisp")), Integer.parseInt(req.getParameter("precioc")));
         
    listo=gp.ModificaProducto(Pro, req.getParameter("idp"));
    if(listo)
    {
        
        System.out.println("Modificado");
+       
    }
    
    else

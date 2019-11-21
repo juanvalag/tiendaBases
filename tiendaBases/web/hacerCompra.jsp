@@ -26,7 +26,7 @@
     <form action="/tiendaBases/compras/comprare" method="POST">
         <label>Fecha: </label><input type="date" name="fecha" required>
         <label>Seleccione un proveedor: </label>
-        <select id="provesSelect" onchange="anadirProveedor()">
+        <select id="provesSelect" onchange="anadirProveedor()" required>
             <option></option>
             <c:forEach var="tempProve" items="${proveedores}">
                 <option class="proves" id="${tempProve.id}">${tempProve.nombre}</option> 
@@ -39,7 +39,7 @@
             <c:forEach var="tempProduc" items="${productos}">
                 <option class="${tempProduc.id}">${tempProduc.nombre}</option> 
             </c:forEach>
-        </select>
+        </select><br>
         <input type="checkbox" name="credito" value="si"> <label>¿Desea que sea a credito la compra? </label>
         <table class="blueTable">
             <thead>
@@ -59,17 +59,17 @@
         <div id="datos">
             <input type="hidden" id="valorTotal" name="valorTotal" value="0">
         </div>
+        <div>
+            <header>
+                <h1>Totales</h1>
+            </header>
+            <section>
+                <p id="total"></p>
+            </section>
+        </div>
         <input type="submit" value="Comprar">
     </form>
-    <div id="productos" style="display: none;"><%out.print(objetojs);%></div>
-    <div>
-        <header>
-            <h1>Totales</h1>
-        </header>
-        <section>
-            <p id="total"></p>
-        </section>
-    </div>
+            <div id="productos" style="display: none;"><%out.print(objetojs);%></div>
 </section>
     </div>
     <script src="/tiendaBases/Recursos/JS/hacerCompra.js">
