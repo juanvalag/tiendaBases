@@ -19,7 +19,7 @@ import model.Compra;
  *
  * @author USUARIO
  */
-@WebServlet(name = "HacerCompraServlet", urlPatterns = {"/compras/deudas"})
+@WebServlet(name = "AbonarDeudaServlet", urlPatterns = {"/compras/deudas"})
 public class AbonarDeudaServlet extends HttpServlet {
 
     @Override

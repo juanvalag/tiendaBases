@@ -37,6 +37,9 @@
                                 <li><a href="/tiendaBases/usuario/deudas">Deudas</a></li> 
                             </div>
                         </div> 
+                        <div class="linkSesionDeslis">
+                            <li><a href="/session/cerrar">Cerrar Sesion</a></li> 
+                        </div>
                     </c:if>
                     <c:if test="${admin}">
                         <div class="linkProducContendor">
@@ -61,7 +64,10 @@
                                         <li><a href="/tiendaBases/compras/todos">Ver Compras</a></li>
                                         <li><a href="/tiendaBases/compras/deudas">Deudas</a></li>
                                     </div>
-                                </div>
+                        </div>
+                        <div class="linkSesionDeslis">
+                            <li><a href="/tiendaBases/sesion/cerrar">Cerrar Sesion</a></li> 
+                        </div>
                     </c:if>
                     <c:if test="${!admin && !cliente}">
                         <li><a href="/tiendaBases">Inicio</a></li>  

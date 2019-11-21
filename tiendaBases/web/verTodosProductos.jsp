@@ -21,7 +21,7 @@
          for(Producto temp: productos){
         %>
             <tr>
-                <td><%=temp.getNomFoto() %></td>
+                <td><img src="/tiendaBases/Recursos/img/food_and_drinks/<%=temp.getNomFoto()%>" alt="<%=temp.getNombre()%>" ></td>
                 <td><%=temp.getId()%></td>
                 <td><%=temp.getNombre()%></td>
                 <td><%=temp.getPrecioCompra()%></td>

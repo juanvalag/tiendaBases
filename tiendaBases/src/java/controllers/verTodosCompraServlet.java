@@ -21,7 +21,7 @@ import model.*;
  * @author USUARIO
  */
 @WebServlet(
-        name = "verTodosProductos",
+        name = "verTodosCompra",
         urlPatterns = {"/compras/todos"}
 )
 public class verTodosCompraServlet extends HttpServlet {
